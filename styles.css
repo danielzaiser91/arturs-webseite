@@ -1,0 +1,66 @@
+* { margin: 0 }
+nav ul > li {
+  list-style-type: none;
+  padding: 1em 0.8em;
+  cursor: pointer;
+}
+nav ul {
+    border-top: 1px solid lightgrey;
+    justify-content: center;
+    display: flex;
+}
+.logo {
+  background: url('images/logo.png') no-repeat 50%/contain;
+  height: 60px;
+  margin: 1em;
+}
+nav.standard {
+  width: calc(100vw - 8%);
+  margin: 0 auto;
+}
+nav a {
+  text-decoration: none;
+  color: initial;
+}
+.teaser {
+  height: 700px;
+  width: 100%;
+}
+.teaser .piano {
+  height: 100%;
+  background: url('images/piano.jpg') no-repeat top left/cover;
+}
+.teaser > div > div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  color: white;
+  padding-top: 9em;
+}
+.teaser h2 {
+  margin-bottom: 1em;
+}
+.teaser h1 {
+  font-size: 3em;
+}
+main .section {
+  padding: 3em 20%;
+  text-align: center;
+}
+.images .panel .img {
+  background: url('images/a1.jpg');
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+form > * {
+  flex: 1 1 100%;
+}
+form .f-50 {
+  flex: 1 1 50%;
+}
