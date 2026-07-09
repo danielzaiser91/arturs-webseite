@@ -1,0 +1,4 @@
+# Seite befindet sich im Aufbau (Platzhalter-Kontaktdaten und -Rechtstexte).
+# Sperre entfernen, sobald echte Daten final sind und die Seite gefunden werden soll.
+User-agent: *
+Disallow: /

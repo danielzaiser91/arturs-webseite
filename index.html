@@ -1,47 +1,196 @@
 <!DOCTYPE html>
-<html>
-  <head>
-  <title>Webseite</title>
-  <link rel="stylesheet" href="styles.css">
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piano Zaiser — Klavierservice in Neuwied</title>
+<meta name="description" content="Klavierstimmung, Verkauf, Ankauf und Restaurierung in Neuwied und Umgebung — persönlich betreut von Artur Zaiser.">
+<!-- TODO: robots-Sperre entfernen, sobald echte Kontakt- und Rechtsdaten (Telefon, Adresse, Impressum) final sind. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%2317130f'/%3E%3Crect x='14' y='16' width='36' height='3' fill='%23c99a4b'/%3E%3Crect x='14' y='19' width='10' height='31' rx='1.5' fill='%23f4ede0'/%3E%3Crect x='27' y='19' width='10' height='31' rx='1.5' fill='%23f4ede0'/%3E%3Crect x='40' y='19' width='10' height='31' rx='1.5' fill='%23f4ede0'/%3E%3Crect x='21' y='19' width='6' height='19' rx='1' fill='%2317130f'/%3E%3Crect x='34' y='19' width='6' height='19' rx='1' fill='%2317130f'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-  <header>
-    <nav class="standard">
-      <div class="logo"></div>
-      <ul>
-        <li><a href="/index.html">Startseite</a></li>
-        <li><a href="/kontakt.html">Kontakt</a></li>
-        <li><a href="/datenschutz.html">Datenschutz</a></li>
-        <li><a href="/impressum.html">Impressum</a></li>
-      </ul>
+
+<div class="topbar">
+  <div class="topbar-row">
+    <a class="brand" href="#top" style="display:flex;align-items:baseline;gap:.55rem;">
+      <span class="brand-mark">Piano <em>Zaiser</em></span>
+      <span class="brand-sub">Klavierservice · Neuwied</span>
+    </a>
+    <nav class="topnav">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#ueber-uns">Über uns</a>
+      <a href="#kontakt">Kontakt</a>
     </nav>
-  </header>
-  <main>
-    <div class="teaser">
-      <div class="piano">
-        <div>
-          <h1>Piano Zaiser</h1>
-          <h2>nur in Neuwied</h2>
-          <h1>Klaviere, Flügel, Digitalpianos neu &amp; gebraucht</h1>s
-          <h2>Pianos für Neuwied | Bad Honnef | Siegen | Koblenz | Winningen | Ahrweiler </h2>
+    <div class="topbar-actions">
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <a class="btn btn-primary" href="#kontakt">Rückruf anfordern</a>
+    </div>
+  </div>
+</div>
+
+<main id="top">
+  <section class="hero">
+    <img class="hero-photo" src="assets/img/hero.jpg" alt="" aria-hidden="true">
+    <div class="hero-scrim" aria-hidden="true"></div>
+    <div class="wrap hero-content" data-reveal>
+      <p class="eyebrow">Klavierservice für Neuwied &amp; Umgebung</p>
+      <h1>Ihr Klavier<br>in den <span class="accent">richtigen&nbsp;Händen.</span></h1>
+      <p class="hero-sub">Stimmung, Verkauf, Ankauf und Restaurierung — persönlich betreut, direkt aus Neuwied für die ganze Region.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#kontakt">Rückruf anfordern</a>
+        <a class="btn btn-ghost" href="#leistungen">Leistungen ansehen</a>
+      </div>
+      <div class="hero-areas">
+        <span class="chip">Neuwied</span>
+        <span class="chip">Bad Honnef</span>
+        <span class="chip">Siegen</span>
+        <span class="chip">Koblenz</span>
+        <span class="chip">Winningen</span>
+        <span class="chip">Ahrweiler</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="leistungen">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Leistungen</p>
+        <h2>Vier Wege zu einem Instrument,<br>das wieder klingt.</h2>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card" data-reveal>
+          <img class="card-image" src="assets/img/leistung-stimmung.jpg" loading="lazy" alt="Klavierstimmung: Stimmhammer und Dämpfer zwischen den Saiten eines Instruments">
+          <div class="card-body">
+            <h3>Klavierstimmung &amp; Wartung</h3>
+            <p>Regelmäßige Stimmung, Regulierung und Intonation — damit Ihr Instrument seinen Klang über Jahre behält.</p>
+            <span class="service-link">Termin anfragen →</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-reveal>
+          <img class="card-image" src="assets/img/leistung-verkauf.jpg" loading="lazy" alt="Nahaufnahme einer Klaviertastatur">
+          <div class="card-body">
+            <h3>Verkauf — neu &amp; gebraucht</h3>
+            <p>Klaviere, Flügel und Digitalpianos, sorgfältig ausgewählt und fair beraten — für Einsteiger wie Kenner.</p>
+            <span class="service-link">Angebote ansehen →</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-reveal>
+          <img class="card-image" src="assets/img/leistung-ankauf.jpg" loading="lazy" alt="Tastatur eines gut erhaltenen älteren Klaviers">
+          <div class="card-body">
+            <h3>Ankauf</h3>
+            <p>Sie möchten Ihr Klavier verkaufen? Faire Einschätzung vor Ort und eine unkomplizierte Abwicklung.</p>
+            <span class="service-link">Instrument einschätzen lassen →</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-reveal>
+          <img class="card-image" src="assets/img/leistung-restaurierung.jpg" loading="lazy" alt="Nahaufnahme des Resonanzbodens und der Stege eines Klaviers">
+          <div class="card-body">
+            <h3>Restaurierung &amp; Reparatur</h3>
+            <p>Von der kleinen Reparatur bis zur vollständigen Aufarbeitung historischer Instrumente.</p>
+            <span class="service-link">Zustand beschreiben →</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section class="about" id="ueber-uns">
+    <div class="wrap about-grid">
+      <img class="about-photo" data-reveal src="assets/img/ueber-uns.jpg" loading="lazy" alt="Blick in das geöffnete Innenleben eines Klaviers: Hammerköpfe, Saiten und Mechanik">
+      <div class="about-text-col">
+        <div data-reveal>
+          <p class="eyebrow">Über uns</p>
+          <blockquote>„Handwerk, das man hört, bevor man es sieht.“</blockquote>
+          <p class="about-cite" style="margin-bottom:1.4rem;">Artur Zaiser kümmert sich persönlich um jedes Instrument — vom ersten Anruf bis zum letzten Ton, direkt mit dem, der Ihr Klavier tatsächlich in die Hand nimmt.</p>
+          <div class="testimonial">
+            <span class="tag">Beispieltext — Platzhalter für echte Kundenstimme</span>
+            <p>„So könnte später eine echte Bewertung aussehen: kurz, konkret, mit Ort und Anlass.“</p>
+          </div>
+        </div>
+        <div class="area-card" data-reveal style="margin-top:1.8rem;">
+          <h3>Servicegebiet</h3>
+          <div class="hero-areas" style="color:var(--fg-dim);">
+            <span class="chip">Neuwied</span>
+            <span class="chip">Bad Honnef</span>
+            <span class="chip">Siegen</span>
+            <span class="chip">Koblenz</span>
+            <span class="chip">Winningen</span>
+            <span class="chip">Ahrweiler</span>
+          </div>
+          <p style="margin-top:1.2rem;color:var(--fg-dim);font-size:0.9rem;">Vor-Ort-Termine im gesamten Einzugsgebiet — Anfahrt nach Absprache.</p>
         </div>
       </div>
     </div>
-    <div class="section">
-      <h1>Tastenkompetenz seit 1924 in der Familie</h1>
-      <p>
-        Ein umfassendes Angebot mit Produkten führender Klavierhersteller unterstreicht die Kompetenz und Vielfalt des Hauses Thilemann.
-        Die Verkaufsräume in Neuwied bieten sowohl Einsteiger-Pianos als auch Konzertinstrumente in edlen Furnieren und Gehäusen.
-      </p>
-      <br>
-      <p>
-        Neben unseren Produkten ist uns unsere Rolle als kompetenter Ratgeber äußerst wichtig: Unsere Klavierbaumeister und Klavierbauer
-        sorgen für ein konstantes Qualitäts-Niveau sowie die professionelle Abwicklung der Aufträge. Dazu gehört beispielsweise auch die
-        raumspezifische Intonation des gelieferten Instruments. Unsere Erfahrung ist die Basis die ständige Erweiterung unseres Wissens ist
-        jedoch ebenso grundlegend, um dem Name Piano Thilemann auch künftig gerecht werden zu können.
-      </p>
+  </section>
+
+  <section class="contact" id="kontakt">
+    <div class="wrap contact-grid">
+      <div data-reveal>
+        <p class="eyebrow">Kontakt</p>
+        <h2>Bereit für den<br>nächsten Ton?</h2>
+        <p class="contact-sub">Ob Stimmung, Verkauf, Ankauf oder eine Frage zu Ihrem Instrument — schreiben Sie uns, wir melden uns zeitnah zurück.</p>
+        <div class="contact-detail">
+          <div><span class="label">Telefon</span>[folgt nach Abstimmung mit Artur]</div>
+          <div><span class="label">E-Mail</span>[folgt nach Abstimmung mit Artur]</div>
+          <div><span class="label">Servicegebiet</span>Neuwied und Umgebung</div>
+        </div>
+      </div>
+      <form class="leadform" data-reveal>
+        <div class="field-row two">
+          <div>
+            <label for="p-name">Name</label>
+            <input id="p-name" type="text" placeholder="Ihr Name" required>
+          </div>
+          <div>
+            <label for="p-kontakt">Telefon oder E-Mail</label>
+            <input id="p-kontakt" type="text" placeholder="Wie erreichen wir Sie?" required>
+          </div>
+        </div>
+        <div>
+          <label for="p-anliegen">Anliegen</label>
+          <select id="p-anliegen">
+            <option>Klavierstimmung</option>
+            <option>Verkauf — Interesse an einem Instrument</option>
+            <option>Ankauf — ich möchte mein Klavier verkaufen</option>
+            <option>Restaurierung / Reparatur</option>
+            <option>Sonstiges</option>
+          </select>
+        </div>
+        <div>
+          <label for="p-nachricht">Nachricht</label>
+          <textarea id="p-nachricht" placeholder="Kurz beschreiben, worum es geht …"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Anfrage senden</button>
+        <p class="form-note" aria-live="polite"></p>
+      </form>
     </div>
-  </main>
-  <footer></footer>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <span>© Piano Zaiser — Neuwied</span>
+      <div class="footer-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+    <p class="concept-note">Diese Seite befindet sich im Aufbau — Telefonnummer, Adresse, echte Fotos aus Arturs Werkstatt und die rechtlichen Pflichttexte werden vor dem offiziellen Start final abgestimmt. Die Fotos hier sind Platzhalter aus Wikimedia Commons, keine Aufnahmen von Arturs eigenen Instrumenten: Piano-Chopin (Charlotte-Jaxa, CC BY-SA 4.0), Piano Tuning Hammer and Mutes (Onascout, CC BY-SA 3.0), Piano Keyboard Macro (włodi, CC BY-SA 2.0), Piano keys close up (Puikstekend, CC BY-SA 4.0), Vose and Sons piano soundboard (Ragesoss, CC BY-SA 4.0), Upright piano inside (Pko, CC BY-SA 3.0).</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
 </body>
 </html>
