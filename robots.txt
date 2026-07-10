@@ -1,4 +1,7 @@
-# Seite befindet sich im Aufbau (Platzhalter-Kontaktdaten und -Rechtstexte).
-# Sperre entfernen, sobald echte Daten final sind und die Seite gefunden werden soll.
+# Die eigentliche "nicht indexieren"-Sperre sitzt als <meta name="robots"
+# content="noindex, nofollow"> auf jeder Seite -- das reicht aus, um
+# Google & Co. von der Indexierung abzuhalten, ohne den Zugriff für
+# andere Bots (z. B. Link-Vorschau-Crawler von WhatsApp/Telegram) zu
+# blockieren, wie es ein pauschales "Disallow: /" hier tun würde.
 User-agent: *
-Disallow: /
+Allow: /
