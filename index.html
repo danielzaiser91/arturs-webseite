@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Piano Zaiser — Klavierservice in Neuwied</title>
-<meta name="description" content="Klavierstimmung, Verkauf, Ankauf und Restaurierung in Neuwied und Umgebung — persönlich betreut von Artur Zaiser.">
-<!-- TODO: robots-Sperre entfernen, sobald echte Kontakt- und Rechtsdaten (Telefon, Adresse, Impressum) final sind. -->
+<title>Westerwald-Pianoservice — Klavierservice in Raubach &amp; im Westerwald</title>
+<meta name="description" content="Klavierstimmung, Verkauf, Ankauf und Restaurierung im Westerwald und Umgebung — persönlich betreut von Artur Zaiser, Westerwald-Pianoservice.">
+<!-- TODO: robots-Sperre erst entfernen, wenn Impressum/Datenschutz/AGB rechtlich geprüft sind (Fakten allein reichen nicht, siehe Widerrufsrecht-Abschnitt in agb.html). -->
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%2317130f'/%3E%3Crect x='14' y='16' width='36' height='3' fill='%23c99a4b'/%3E%3Crect x='14' y='19' width='10' height='31' rx='1.5' fill='%23f4ede0'/%3E%3Crect x='27' y='19' width='10' height='31' rx='1.5' fill='%23f4ede0'/%3E%3Crect x='40' y='19' width='10' height='31' rx='1.5' fill='%23f4ede0'/%3E%3Crect x='21' y='19' width='6' height='19' rx='1' fill='%2317130f'/%3E%3Crect x='34' y='19' width='6' height='19' rx='1' fill='%2317130f'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/css/styles.css">
@@ -15,8 +15,8 @@
 <div class="topbar">
   <div class="topbar-row">
     <a class="brand" href="#top" style="display:flex;align-items:baseline;gap:.55rem;">
-      <span class="brand-mark">Piano <em>Zaiser</em></span>
-      <span class="brand-sub">Klavierservice · Neuwied</span>
+      <span class="brand-mark">Westerwald-<em>Pianoservice</em></span>
+      <span class="brand-sub">Klavierservice · Raubach</span>
     </a>
     <nav class="topnav">
       <a href="#leistungen">Leistungen</a>
@@ -37,14 +37,15 @@
     <img class="hero-photo" src="assets/img/hero.jpg" alt="" aria-hidden="true">
     <div class="hero-scrim" aria-hidden="true"></div>
     <div class="wrap hero-content" data-reveal>
-      <p class="eyebrow">Klavierservice für Neuwied &amp; Umgebung</p>
+      <p class="eyebrow">Klavierservice aus Raubach für den Westerwald</p>
       <h1>Ihr Klavier<br>in den <span class="accent">richtigen&nbsp;Händen.</span></h1>
-      <p class="hero-sub">Stimmung, Verkauf, Ankauf und Restaurierung — persönlich betreut, direkt aus Neuwied für die ganze Region.</p>
+      <p class="hero-sub">Stimmung, Verkauf, Ankauf und Restaurierung — persönlich betreut, direkt aus Raubach für den gesamten Westerwald.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#kontakt">Rückruf anfordern</a>
         <a class="btn btn-ghost" href="#leistungen">Leistungen ansehen</a>
       </div>
       <div class="hero-areas">
+        <span class="chip">Raubach</span>
         <span class="chip">Neuwied</span>
         <span class="chip">Bad Honnef</span>
         <span class="chip">Siegen</span>
@@ -121,6 +122,7 @@
         <div class="area-card" data-reveal style="margin-top:1.8rem;">
           <h3>Servicegebiet</h3>
           <div class="hero-areas" style="color:var(--fg-dim);">
+            <span class="chip">Raubach</span>
             <span class="chip">Neuwied</span>
             <span class="chip">Bad Honnef</span>
             <span class="chip">Siegen</span>
@@ -141,20 +143,45 @@
         <h2>Bereit für den<br>nächsten Ton?</h2>
         <p class="contact-sub">Ob Stimmung, Verkauf, Ankauf oder eine Frage zu Ihrem Instrument — schreiben Sie uns, wir melden uns zeitnah zurück.</p>
         <div class="contact-detail">
-          <div><span class="label">Telefon</span>[folgt nach Abstimmung mit Artur]</div>
-          <div><span class="label">E-Mail</span>[folgt nach Abstimmung mit Artur]</div>
-          <div><span class="label">Servicegebiet</span>Neuwied und Umgebung</div>
+          <div><span class="label">Telefon</span><a href="tel:+4926849496265">02684 94 96 265</a></div>
+          <div><span class="label">Mobil</span><a href="tel:+491639632202">0163 963 22 02</a></div>
+          <div><span class="label">E-Mail</span><a href="mailto:info@westerwald-pianoservice.de">info@westerwald-pianoservice.de</a></div>
+          <div><span class="label">Servicegebiet</span>Raubach und der Westerwald</div>
         </div>
       </div>
       <form class="leadform" data-reveal>
         <div class="field-row two">
           <div>
-            <label for="p-name">Name</label>
-            <input id="p-name" type="text" placeholder="Ihr Name" required>
+            <label for="p-vorname">Vorname</label>
+            <input id="p-vorname" type="text" placeholder="Ihr Vorname">
           </div>
           <div>
-            <label for="p-kontakt">Telefon oder E-Mail</label>
-            <input id="p-kontakt" type="text" placeholder="Wie erreichen wir Sie?" required>
+            <label for="p-nachname">Nachname *</label>
+            <input id="p-nachname" type="text" placeholder="Ihr Nachname" required>
+          </div>
+        </div>
+        <div class="field-row two">
+          <div>
+            <label for="p-email">E-Mail Adresse *</label>
+            <input id="p-email" type="email" placeholder="ihre@email.de" required>
+          </div>
+          <div>
+            <label for="p-telefon">Telefonnummer</label>
+            <input id="p-telefon" type="tel" placeholder="Für Rückrufe (optional)">
+          </div>
+        </div>
+        <div>
+          <label for="p-strasse">Straße / Hausnummer</label>
+          <input id="p-strasse" type="text" placeholder="Optional">
+        </div>
+        <div class="field-row two">
+          <div>
+            <label for="p-plz">PLZ</label>
+            <input id="p-plz" type="text" placeholder="Optional">
+          </div>
+          <div>
+            <label for="p-ort">Ort</label>
+            <input id="p-ort" type="text" placeholder="Optional">
           </div>
         </div>
         <div>
@@ -168,8 +195,8 @@
           </select>
         </div>
         <div>
-          <label for="p-nachricht">Nachricht</label>
-          <textarea id="p-nachricht" placeholder="Kurz beschreiben, worum es geht …"></textarea>
+          <label for="p-nachricht">Nachricht *</label>
+          <textarea id="p-nachricht" placeholder="Kurz beschreiben, worum es geht …" required></textarea>
         </div>
         <button class="btn btn-primary" type="submit">Anfrage senden</button>
         <p class="form-note" aria-live="polite"></p>
@@ -181,14 +208,14 @@
 <footer>
   <div class="wrap">
     <div class="footer-row">
-      <span>© Piano Zaiser — Neuwied</span>
+      <span>© Westerwald-Pianoservice — Raubach</span>
       <div class="footer-links">
         <a href="impressum.html">Impressum</a>
         <a href="datenschutz.html">Datenschutz</a>
         <a href="agb.html">AGB</a>
       </div>
     </div>
-    <p class="concept-note">Diese Seite befindet sich im Aufbau — Telefonnummer, Adresse, echte Fotos aus Arturs Werkstatt und die rechtlichen Pflichttexte werden vor dem offiziellen Start final abgestimmt. Die Fotos hier sind Platzhalter aus Wikimedia Commons, keine Aufnahmen von Arturs eigenen Instrumenten: Piano-Chopin (Charlotte-Jaxa, CC BY-SA 4.0), Piano Tuning Hammer and Mutes (Onascout, CC BY-SA 3.0), Piano Keyboard Macro (włodi, CC BY-SA 2.0), Piano keys close up (Puikstekend, CC BY-SA 4.0), Vose and Sons piano soundboard (Ragesoss, CC BY-SA 4.0), Upright piano inside (Pko, CC BY-SA 3.0).</p>
+    <p class="concept-note">Diese Seite befindet sich im Aufbau — echte Fotos aus Arturs Werkstatt und die rechtlichen Pflichttexte (insbesondere die Widerrufsbelehrung in den AGB) werden noch final geprüft. Die Fotos hier sind Platzhalter aus Wikimedia Commons, keine Aufnahmen von Arturs eigenen Instrumenten: Piano-Chopin (Charlotte-Jaxa, CC BY-SA 4.0), Piano Tuning Hammer and Mutes (Onascout, CC BY-SA 3.0), Piano Keyboard Macro (włodi, CC BY-SA 2.0), Piano keys close up (Puikstekend, CC BY-SA 4.0), Vose and Sons piano soundboard (Ragesoss, CC BY-SA 4.0), Upright piano inside (Pko, CC BY-SA 3.0).</p>
   </div>
 </footer>
 

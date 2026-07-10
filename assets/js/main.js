@@ -41,10 +41,18 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var name = form.querySelector('#p-name').value.trim();
-      var kontakt = form.querySelector('#p-kontakt').value.trim();
+      var vorname = form.querySelector('#p-vorname').value.trim();
+      var nachname = form.querySelector('#p-nachname').value.trim();
+      var email = form.querySelector('#p-email').value.trim();
+      var telefon = form.querySelector('#p-telefon').value.trim();
+      var strasse = form.querySelector('#p-strasse').value.trim();
+      var plz = form.querySelector('#p-plz').value.trim();
+      var ort = form.querySelector('#p-ort').value.trim();
       var anliegen = form.querySelector('#p-anliegen').value;
       var nachricht = form.querySelector('#p-nachricht').value.trim();
+
+      var fullName = (vorname + ' ' + nachname).trim();
+      var adresse = [strasse, [plz, ort].filter(Boolean).join(' ')].filter(Boolean).join(', ');
 
       if (note) {
         note.textContent = 'Wird gesendet …';
@@ -58,8 +66,9 @@
         body: JSON.stringify({
           access_key: WEB3FORMS_ACCESS_KEY,
           subject: 'Anfrage über die Website: ' + anliegen,
-          name: name,
-          message: 'Kontaktmöglichkeit: ' + kontakt + '\nAnliegen: ' + anliegen + '\n\n' + nachricht
+          name: fullName,
+          email: email,
+          message: 'Telefon: ' + (telefon || '–') + '\nAdresse: ' + (adresse || '–') + '\nAnliegen: ' + anliegen + '\n\n' + nachricht
         })
       })
         .then(function (res) { return res.json(); })
