@@ -154,40 +154,40 @@
         <div class="field-row two">
           <div>
             <label for="p-vorname">Vorname</label>
-            <input id="p-vorname" type="text" placeholder="Ihr Vorname">
+            <input id="p-vorname" name="vorname" type="text" placeholder="Ihr Vorname">
           </div>
           <div>
             <label for="p-nachname">Nachname *</label>
-            <input id="p-nachname" type="text" placeholder="Ihr Nachname" required>
+            <input id="p-nachname" name="nachname" type="text" placeholder="Ihr Nachname" required>
           </div>
         </div>
         <div class="field-row two">
           <div>
             <label for="p-email">E-Mail Adresse *</label>
-            <input id="p-email" type="email" placeholder="ihre@email.de" required>
+            <input id="p-email" name="email" type="email" placeholder="ihre@email.de" required>
           </div>
           <div>
             <label for="p-telefon">Telefonnummer</label>
-            <input id="p-telefon" type="tel" placeholder="Für Rückrufe (optional)">
+            <input id="p-telefon" name="telefon" type="tel" placeholder="Für Rückrufe (optional)">
           </div>
         </div>
         <div>
           <label for="p-strasse">Straße / Hausnummer</label>
-          <input id="p-strasse" type="text" placeholder="Optional">
+          <input id="p-strasse" name="strasse" type="text" placeholder="Optional">
         </div>
         <div class="field-row two">
           <div>
             <label for="p-plz">PLZ</label>
-            <input id="p-plz" type="text" placeholder="Optional">
+            <input id="p-plz" name="plz" type="text" placeholder="Optional">
           </div>
           <div>
             <label for="p-ort">Ort</label>
-            <input id="p-ort" type="text" placeholder="Optional">
+            <input id="p-ort" name="ort" type="text" placeholder="Optional">
           </div>
         </div>
         <div>
           <label for="p-anliegen">Anliegen</label>
-          <select id="p-anliegen">
+          <select id="p-anliegen" name="anliegen">
             <option>Klavierstimmung</option>
             <option>Verkauf — Interesse an einem Instrument</option>
             <option>Ankauf — ich möchte mein Klavier verkaufen</option>
@@ -197,7 +197,7 @@
         </div>
         <div>
           <label for="p-nachricht">Nachricht *</label>
-          <textarea id="p-nachricht" placeholder="Kurz beschreiben, worum es geht …" required></textarea>
+          <textarea id="p-nachricht" name="nachricht" placeholder="Kurz beschreiben, worum es geht …" required></textarea>
         </div>
         <button class="btn btn-primary" type="submit">Anfrage senden</button>
         <p class="form-note" aria-live="polite"></p>
