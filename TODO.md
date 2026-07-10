@@ -1,48 +1,57 @@
 # Offene Punkte — Westerwald-Pianoservice Website
 
 Stand: 10.07.2026. Die Seite ist live unter `https://ace2001.lima-city.de/` (und per Weiterleitung
-über `westerwald-pianoservice.de`, siehe Punkt unten zum TLS-Problem).
+über `westerwald-pianoservice.de`).
 
-## 🔴 Kritisch — verhindert, dass die Seite bei Google gefunden wird
+Aufgeteilt in zwei Teile: was nur Artur entscheiden/liefern kann, und was wir technisch selbst
+erledigen können.
 
-- [ ] **`noindex`-Meta-Tag entfernen** auf allen 4 Seiten (`index.html`, `impressum.html`,
-  `datenschutz.html`, `agb.html`). Aktuell steht `<meta name="robots" content="noindex, nofollow">`
-  überall drin — das verhindert, dass Google die Seite in den Suchergebnissen zeigt, unabhängig von
-  `robots.txt`. War bewusst gesetzt, solange Kontaktdaten/Rechtstexte noch Platzhalter waren.
-  **Empfehlung:** jetzt entfernen, da die wesentlichen Pflichtangaben im Impressum echt sind.
+---
 
-## 🟡 Inhaltlich — braucht echten Content von Artur
+## Teil A — Fragen an Artur
 
-- [ ] **Fake-Kundenstimme ersetzen** (`index.html`, Über-uns-Sektion): aktuell ein erfundenes
-  Beispiel-Zitat, klar als "Beispieltext — Platzhalter" gekennzeichnet. Braucht eine echte Bewertung
-  oder sollte ganz raus.
-- [ ] **3 von 6 Fotos sind noch Stock-Bilder** (Hero, "Verkauf", "Ankauf & Taxierung") — Wikimedia-
-  Commons-Platzhalter, keine echten Aufnahmen von Artur/seinem Geschäft. Die anderen 3 (Stimmung,
-  Restaurierung, Über uns) sind schon echte Fotos aus dem alten Website-Archiv.
-- [ ] **"Im Aufbau"-Hinweis im Footer entfernen**, sobald Punkt oben (Fotos) erledigt ist.
+*(Dieser Abschnitt kann 1:1 an Artur weitergeleitet werden.)*
 
-## 🟠 Rechtlich offen — braucht Entscheidung/Prüfung, nicht einfach von mir ausfüllbar
+1. **Hast du eine echte Kundenbewertung?** Auf der Seite steht aktuell noch ein erfundenes
+   Beispiel-Zitat als Platzhalter (klar als solcher markiert, aber sollte weg). Wenn du eine
+   zufriedene Kundin oder einen Kunden kennst, der 1-2 Sätze schreiben würde — perfekt. Wenn nicht,
+   entfernen wir den Platzhalter einfach ersatzlos.
 
-- [ ] **Verbraucherstreitbeilegung** (`impressum.html`): Platzhalter `[Bitte gemeinsam mit Artur final
-  prüfen/anpassen.]` — Entscheidung nötig, ob Artur an einem Schlichtungsverfahren teilnimmt.
-- [ ] **Juristische Prüfung von Impressum & Datenschutz** — Fakten sind vollständig und korrekt,
-  aber kein Anwalt hat über die Formulierungen geschaut. Beide Seiten haben noch einen Draft-Banner,
-  der das offen so sagt.
-- [ ] **AGB-Entscheidung**: aktuell bewusst auf "wir haben keine eigenen AGB, es gilt das BGB"
-  gestellt (rechtlich zulässig, da AGB freiwillig sind). Antwort von der **Handwerkskammer Koblenz**
-  zu einer passenden Muster-AGB steht noch aus.
+2. **Hast du noch mehr Fotos?** Von dir bei der Arbeit, von Instrumenten, von der Werkstatt, vom
+   Transport? Aktuell sind 3 von 6 Bildern auf der Seite noch generische Stockfotos (beim Verkauf,
+   beim Ankauf und im großen Titelbild), keine echten Aufnahmen von dir. Je mehr echte Fotos, desto
+   besser — das ist der Punkt, der Kunden am meisten überzeugt.
 
-## ⚪ Technisch — teilweise außerhalb meiner Kontrolle
+3. **Möchtest du an einem Streit-Schlichtungsverfahren teilnehmen?** Kurz erklärt: Falls es mal
+   Streit mit einem Kunden gibt, gibt es die Möglichkeit, das über eine neutrale Schlichtungsstelle
+   zu klären statt vor Gericht. Das ist freiwillig. Im Impressum muss stehen, ob du daran
+   teilnimmst oder nicht — bisher ist das noch offen.
 
-- [ ] **TLS-Fehler bei `westerwald-pianoservice.de`**: Die Domain leitet per 302 auf
-  `ace2001.lima-city.de` weiter, aber der Weiterleitungsdienst hatte zuletzt einen TLS-Handshake-
-  Fehler (unabhängig von unserer Website). Mögliche Lösung: **Domain-Transfer zu lima-city** (siehe
-  [lima-city Hilfe: Domain-Transfer](https://www.lima-city.de/hilfe/domain-transfer-zu-lima-city)) —
-  braucht einen AuthCode vom aktuellen Domain-Anbieter, dauert bei `.de`-Domains meist nur Stunden.
-  Damit würde die Domain direkt bei lima-city liegen statt über einen externen Weiterleitungsdienst.
-- [ ] **WhatsApp-Link-Vorschau erneut testen** mit einer frischen URL (z. B. `?v=4`), nachdem
-  `og:url`-Mismatch, fehlendes `charset` im Content-Type und die zu strikte `robots.txt` behoben
-  wurden — Discord-Vorschau funktioniert bereits, WhatsApp-Bestätigung steht noch aus.
+4. **Was sagt die Handwerkskammer Koblenz zur Muster-AGB?** Sobald du eine Antwort hast, sag
+   Bescheid, dann bauen wir das ein. Bis dahin steht auf der Seite ehrlich "wir haben aktuell keine
+   eigenen AGB, es gilt das gesetzliche Recht" — das ist rechtlich in Ordnung, AGB sind freiwillig.
+
+5. **Möchtest du Impressum und Datenschutzerklärung einmal von einem Anwalt gegenlesen lassen?**
+   Alle Fakten (Adresse, Telefon, Steuernummer etc.) sind korrekt und vollständig drin — es geht nur
+   noch darum, ob die Formulierungen selbst juristisch wasserdicht sind. Optional, aber empfohlen,
+   bevor viel Traffic auf die Seite kommt.
+
+6. **Falls das Problem mit der Adresse "westerwald-pianoservice.de" bestehen bleibt:** Eine mögliche
+   Lösung wäre, die Domain zu deinem lima-city-Konto umzuziehen (dauert bei .de-Domains meist nur
+   ein paar Stunden). Dafür brauchst du einen "AuthCode" von deinem bisherigen Domain-Anbieter —
+   das ist wie ein Passwort, das man dort anfordern kann. Sag Bescheid, falls du das angehen willst,
+   dann helfen wir beim Rest.
+
+---
+
+## Teil B — Können wir selbst erledigen (technisch, kein Artur-Input nötig)
+
+- [ ] `noindex`-Meta-Tag entfernen, damit Google die Seite überhaupt in den Suchergebnissen zeigen
+  kann — sinnvoll, sobald Punkt 1+2 aus Teil A einigermaßen geklärt sind.
+- [ ] "Im Aufbau"-Hinweis im Footer entfernen, sobald die Fotos aus Punkt 2 (Teil A) eingebaut sind.
+- [ ] WhatsApp-Link-Vorschau mit einer frischen Test-URL erneut verifizieren (Discord funktioniert
+  bereits, mehrere technische Fixes sind schon live: robots.txt, og:url-Mismatch, fehlendes
+  charset).
 
 ## ✅ Bereits erledigt (zur Referenz)
 
