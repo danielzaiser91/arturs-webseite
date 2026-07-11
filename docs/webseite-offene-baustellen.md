@@ -53,20 +53,18 @@ Gesamtstatus.
 
 ## 4. Sicherheit / Spam-Schutz
 
-- **Kontaktformular-Spamschutz** (Honeypot-Feld, Timing-Check, IP-Rate-Limit) implementiert und
-  deployed. Ein Bug im Timing-Check wurde gefunden und behoben: der ursprüngliche Check verglich
-  einen Client-Zeitstempel gegen die Server-Uhr — bei Uhrzeitversatz zwischen beiden (hier ca.
-  6-7 Sekunden) wurden dadurch ausnahmslos alle Einsendungen als "zu schnell" erkannt und per
-  Fake-Success verworfen, auch echte Nutzer wären betroffen gewesen. Fix: Dauer wird jetzt
-  komplett auf der Client-Uhr gemessen (`performance.now()`), kein Uhr-Vergleich mehr. Warum
-  trotzdem noch keine Test-Mail zugestellt wurde, wird weiter untersucht.
+- ✅ **Kontaktformular-Spamschutz** (Honeypot-Feld, Timing-Check, IP-Rate-Limit) implementiert,
+  deployed und end-to-end verifiziert. Ein Bug im Timing-Check wurde gefunden und behoben: der
+  ursprüngliche Check verglich einen Client-Zeitstempel gegen die Server-Uhr — bei Uhrzeitversatz
+  zwischen beiden (hier ca. 6-7 Sekunden) wurden dadurch ausnahmslos alle Einsendungen als "zu
+  schnell" erkannt und per Fake-Success verworfen, auch echte Nutzer wären betroffen gewesen. Fix:
+  Dauer wird jetzt komplett auf der Client-Uhr gemessen (`performance.now()`), kein Uhr-Vergleich
+  mehr. Test-Mail über das echte Formular erfolgreich zugestellt und wieder gelöscht.
 
 ## 5. Deployment-Status (aktueller Sync-Zustand zwischen GitHub und lima-city-FTP)
 
-Laut Deploy-Regel in `CLAUDE.md` müssen GitHub (Pages) und lima-city-FTP (Produktivseite) immer
-denselben Stand zeigen. Aktuell **nicht synchron**: Branch `text-ueberarbeitung` (kompletter
-Text-Überhaul) wurde gerade in `main` gemergt und muss noch gepusht und per FTP deployed werden,
-ebenso der Timing-Check-Fix aus Punkt 4.
+✅ GitHub und lima-city-FTP sind synchron — letzter Stand auf beiden: Text-Überhaul (Branch
+`text-ueberarbeitung`, gemergt) + Timing-Check-Fix.
 
 ## 6. E-Mail-Postfach (Details siehe `email-uebersicht-fuer-artur.md`)
 
@@ -102,8 +100,8 @@ ebenso der Timing-Check-Fix aus Punkt 4.
   Mailto-Obfuskierung nicht zu unterlaufen).
 - `sitemap.xml` erstellt.
 - Bildoptimierung: WebP-Varianten + responsive `srcset`/`<picture>` für alle Content-Bilder.
-- Kontaktformular: Honeypot-Feld + Timing-Check + IP-Rate-Limit gegen automatisierten Spam
-  (Timing-Check-Bug siehe Punkt 4).
+- Kontaktformular: Honeypot-Feld + Timing-Check + IP-Rate-Limit gegen automatisierten Spam,
+  Timing-Check-Bug (Client-/Server-Uhrzeitversatz) gefunden und behoben, end-to-end verifiziert.
 - Mailbox-Speicherlimit-Engpass behoben: 987 alte, isolierte Sent-Mails (vor 2020) vom Server
   entfernt, ~343 MB freigegeben, lokales Backup bleibt vollständig.
 - **Kompletter Text-Überhaul aller 4 Seiten** (11.07.2026, Branch `text-ueberarbeitung`):
