@@ -1,4 +1,5 @@
 .claude/
 secrets/
 email-backup/
-email-uebersicht-fuer-artur.md
+docs/email-uebersicht-fuer-artur.md
+.sync-tools/

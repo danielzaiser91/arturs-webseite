@@ -2,10 +2,33 @@
 
 Gilt für jeden Agent, der in diesem Repo arbeitet.
 
+## Ordnerstruktur
+
+- **Root** (`index.html`, `impressum.html`, `datenschutz.html`, `agb.html`, `robots.txt`,
+  `.htaccess`, `assets/`) — **client-facing**, das ist die eigentliche Website. Alles hier landet
+  auf GitHub Pages **und** FTP.
+- **`docs/`** — interne Projektdokumentation (`TODO.md`, `WEBSITE_PLAN.md`,
+  `ARTUR_WEBSITE_REVIEW.md`, `webseite-offene-baustellen.md`, `email-uebersicht-fuer-artur.md`).
+  Nicht client-facing, **nie auf FTP hochladen**.
+- **`CLAUDE.md`** (dieses File) bleibt bewusst im Root, nicht in `docs/` — Tooling-Konvention, wird
+  automatisch geladen. Ebenfalls nie auf FTP.
+- **`archiv-alte-webseite-2014/`** — Altbestand der alten Website, nicht mehr verlinkt/genutzt.
+  Bleibt aus Referenzgründen im Repo, gehört aber ebenfalls nicht auf FTP.
+- **Gitignored** (nie im Git-Repo, nie auf FTP): `.claude/`, `secrets/`, `email-backup/`,
+  `.sync-tools/`.
+
+## Regel: nur client-facing Dateien auf FTP
+
+Das lima-city-FTP-Webspace ist die **öffentliche Produktivseite** — dort darf ausschließlich landen,
+was tatsächlich Teil der ausgelieferten Website ist (Root-Dateien + `assets/`). Alles andere
+(Projektdocs, Sync-Tools, Secrets, Archive, `.git`-Metadaten) bleibt lokal/in GitHub, **niemals**
+per FTP hochladen. Vor jedem FTP-Deploy kurz prüfen, dass nur die client-facing Dateien im
+Upload-Set sind — nicht versehentlich den ganzen Ordner synchronisieren.
+
 ## Offene-Baustellen-Datei immer aktuell halten
 
-`webseite-offene-baustellen.md` ist die zentrale, kategorisierte Übersicht über alle offenen Punkte
-im Projekt (Rechtliches, Content, SEO, Sicherheit, Deployment-Status, E-Mail). **Nach jeder
+`docs/webseite-offene-baustellen.md` ist die zentrale, kategorisierte Übersicht über alle offenen
+Punkte im Projekt (Rechtliches, Content, SEO, Sicherheit, Deployment-Status, E-Mail). **Nach jeder
 Entscheidung oder Code-Änderung** in diesem Repo diese Datei aktualisieren:
 
 - Erledigte Punkte in den "Bereits erledigt"-Abschnitt verschieben (nicht einfach löschen).
@@ -13,15 +36,62 @@ Entscheidung oder Code-Änderung** in diesem Repo diese Datei aktualisieren:
 - Bei größeren Audits (wie der Erstversion) ruhig auch den "Stand: DD.MM.YYYY"-Hinweis oben
   aktualisieren.
 
-Diese Datei wird von Daniel 1:1 mit einem Google Doc gesynct (siehe Absprache) und an Artur
-weitergegeben — sie muss also für sich verständlich und aktuell sein, nicht nur im Kontext des
-Chats.
+Diese Datei wird 1:1 mit einem Google Doc gesynct und an Artur weitergegeben — sie muss also für
+sich verständlich und aktuell sein, nicht nur im Kontext des Chats.
+
+### Google-Doc-Sync — wie es funktioniert
+
+Google Doc: https://docs.google.com/document/d/1279KnXk6Lo_Cg64SrvxRv_ZHT8umytUOPUhtFdM6ikQ/edit
+mit drei Tabs: **"Offene Baustellen"** (Spiegel von `docs/webseite-offene-baustellen.md`),
+**"Fragen an Artur"** (Checkbox-Fragebogen für offene Entscheidungen) und **"Referenzen"** (Spiegel
+von `docs/email-uebersicht-fuer-artur.md`).
+
+Sync-Tools liegen in `.sync-tools/` (nicht im Git-Repo, siehe `.gitignore` — enthält u. a.
+`token.json` mit dem OAuth-Refresh-Token):
+
+- **`push_baustellen.py`** — schreibt `docs/webseite-offene-baustellen.md` in den Doc-Tab "Offene
+  Baustellen". **Nach jeder Aktualisierung der .md-Datei ausführen**, damit das Doc synchron
+  bleibt (`cd ".sync-tools" && python push_baustellen.py`). Enthält außerdem: farbige
+  Kategorie-Überschriften, klickbares Inhaltsverzeichnis, und die Keep-Together-Regel (siehe unten).
+- **`push_fragebogen.py`** — baut/aktualisiert den Fragebogen-Tab neu (nur bei Bedarf, überschreibt
+  den kompletten Tab-Inhalt). Farbige Pill-Optionen (grün=Ja, rot=Nein, gelb=Sonstiges), echte
+  Checkboxen, Seitenumbruch vor Frage 5.
+- **`push_referenzen.py`** — schreibt `docs/email-uebersicht-fuer-artur.md` in den Referenzen-Tab
+  (Markdown-Tabellen werden dabei zu einzeiligen Bullet-Listen konvertiert, da native Docs-Tabellen
+  bei dieser Menge an Zeilen nicht praktikabel sind).
+- **`check_and_pull.py`** — vergleicht `modifiedTime` des Docs mit dem letzten bekannten Stand in
+  `sync_state.json`. Falls jemand (Artur/Daniel) direkt im Doc editiert hat, zieht es den Inhalt
+  automatisch zurück in `docs/webseite-offene-baustellen.md`.
+- **Wichtig:** jedes `push_*.py`-Script ruft am Ende `record_own_push()` auf (aus
+  `gdocs_common.py`) — das aktualisiert `sync_state.json` mit dem neuen `modifiedTime`, damit der
+  *eigene* Push nicht fälschlich vom Scheduled Task als "Artur hat editiert" erkannt und die lokale
+  Datei mit einer verlustbehafteten Rückkonvertierung überschrieben wird. Bei neuen Push-Scripts
+  diesen Aufruf nicht vergessen.
+- Läuft alle 20 Minuten automatisch als **Scheduled Task** (`baustellen-doc-sync-check`) — erkennt
+  Doc-Änderungen von Artur/Daniel automatisch und meldet sich mit einer Zusammenfassung, wenn
+  Handlungsbedarf besteht.
+- Google Cloud Projekt "Baustellen-Sync", Credentials/Doc-ID in `my_secrets.md` unter "Google Cloud
+  Baustellen-Sync" dokumentiert.
+- Bekannte Einschränkung: Markdown ↔ Google Docs ist keine perfekte 1:1-Konvertierung (Tabellen,
+  verschachtelte Listen etc. können bei größeren Strukturänderungen Fidelity verlieren) — für die
+  aktuelle Struktur der Dateien (Überschriften, Bullet-Listen, Absätze) funktioniert es sauber.
+
+### Regel: Abschnitte dürfen nicht über einen Seitenumbruch auseinanderreißen
+
+In beiden Doc-Tabs gilt: eine logische Einheit (in "Offene Baustellen" eine H2-Sektion inkl. all
+ihrer Bullets; in "Fragen an Artur" eine Frage inkl. aller Options-Pills und der Kommentarzeile)
+bekommt `keepLinesTogether` auf jedem Absatz und `keepWithNext` auf allen Absätzen außer dem
+letzten im Block — verhindert, dass Google Docs die Einheit mittendrin über eine Seite verteilt.
+Bei künftigen Erweiterungen der Push-Scripts (neue Abschnitte/Fragen) dieses Muster beibehalten,
+siehe `block_ranges`-Logik in `push_baustellen.py`/`push_fragebogen.py`. Falls ein expliziter
+Seitenumbruch nötig ist (`insertPageBreak`), diesen immer als **eigenen, abgeschlossenen Absatz**
+einfügen (Page-Break-Request + eigenes `\n`) — landet er im selben Absatz wie nachfolgender Text,
+rendert der leere Rest des Absatzes noch auf der vorherigen Seite (siehe Bugfix in
+`push_fragebogen.py`).
 
 ## Deploy-Regel
 
-Gilt für jeden Agent, der in diesem Repo arbeitet.
-
-## Zwei Zielsysteme, beide müssen synchron sein
+### Zwei Zielsysteme, beide müssen synchron sein
 
 1. **GitHub Repo** (`danielzaiser91/arturs-webseite`, origin) → **GitHub Pages**, live unter
    `https://danielzaiser91.github.io/arturs-webseite/`
@@ -29,10 +99,12 @@ Gilt für jeden Agent, der in diesem Repo arbeitet.
    `https://westerwald-pianoservice.de`. Zugangsdaten: `C:\code\ai\ai helper files\my_secrets.md`,
    Abschnitt "Arturs Website (Westerwald-Pianoservice) — FTP Filehost lima-city.de".
 
-**Standardfall:** Nach jeder fertigen, funktionierenden Änderung → `git push` **und** FTP-Upload.
-Beide Systeme sollen denselben Code-Stand zeigen — nicht auseinanderdriften lassen.
+**Standardfall:** Nach jeder fertigen, funktionierenden Änderung an client-facing Dateien →
+`git push` **und** FTP-Upload (nur der client-facing Dateien, siehe "Regel: nur client-facing
+Dateien auf FTP" oben). Beide Systeme sollen denselben Code-Stand zeigen — nicht auseinanderdriften
+lassen. `docs/`-Änderungen brauchen keinen FTP-Upload, nur `git push`.
 
-## Ausnahme beim Testen/Experimentieren
+### Ausnahme beim Testen/Experimentieren
 
 - Erstmal nur lokal arbeiten (kein Push, kein FTP-Upload).
 - Falls ein Zwischenstand auf GitHub gebraucht wird (Review, GitHub-Pages-Vorschau) → nur GitHub
@@ -40,7 +112,7 @@ Beide Systeme sollen denselben Code-Stand zeigen — nicht auseinanderdriften la
 - Erst **nachdem** der Test bestätigt funktioniert wie erwartet → FTP-Upload nachziehen, damit beide
   Systeme wieder gleichauf sind.
 
-## Wenn ein Grund gegen Sync auf beiden Systemen spricht
+### Wenn ein Grund gegen Sync auf beiden Systemen spricht
 
 Nicht eigenmächtig entscheiden, etwas nur auf einem System zu lassen. Stattdessen dem User die
 Details vorlegen (was, warum, welche Konsequenz) und ihn entscheiden lassen.
