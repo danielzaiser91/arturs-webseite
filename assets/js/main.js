@@ -1,6 +1,15 @@
 (function () {
   'use strict';
 
+  // E-Mail-Adresse wird erst hier zusammengesetzt (nicht als Klartext im HTML),
+  // damit simple Scraper-Bots sie nicht aus dem Quelltext abgreifen. Für echte
+  // Besucher funktioniert der Link identisch (kein Klick zum Aufdecken nötig).
+  document.querySelectorAll('[data-mail-user]').forEach(function (el) {
+    var addr = el.getAttribute('data-mail-user') + '@' + el.getAttribute('data-mail-domain');
+    el.setAttribute('href', 'mailto:' + addr);
+    el.textContent = addr;
+  });
+
   // Kontaktformular-Endpunkt: eigenes PHP-Skript auf lima-city (gleiches
   // Prinzip wie Arturs altes Formular -- direkter mail()-Versand an sein
   // Postfach, kein Drittanbieter). Funktioniert nur auf der lima-city-

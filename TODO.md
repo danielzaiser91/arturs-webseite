@@ -53,6 +53,14 @@ erledigen können.
   bereits, mehrere technische Fixes sind schon live: robots.txt, og:url-Mismatch, fehlendes
   charset).
 
+## Potenzielle Verbesserungen
+
+- [ ] **Schutz vor Werbe-/KI-/Spam-Mails über das Kontaktformular** — aktuell kein Honeypot-Feld und
+  kein Rate-Limiting/Captcha (z. B. Cloudflare Turnstile) auf `kontakt`-Formular. Im E-Mail-Backup
+  finden sich mehrere Wellen SEO-Cold-Outreach, gefälschte "KI-Ranking"-Angebote und automatisierte
+  Fake-Antwort-Bots. Mailto-Links auf der Seite wurden bereits obfuskiert (siehe main.js), das
+  Formular selbst ist aber noch offen für automatisierten Bot-Spam.
+
 ## ✅ Bereits erledigt (zur Referenz)
 
 - Echte Kontaktdaten (Adresse, Telefon, Mobil, E-Mail, Steuernummer) im Impressum, Datenschutz, AGB
