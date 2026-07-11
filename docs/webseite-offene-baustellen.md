@@ -61,13 +61,11 @@ Gesamtstatus.
 Laut Deploy-Regel in `CLAUDE.md` müssen GitHub (Pages) und lima-city-FTP (Produktivseite) immer
 denselben Stand zeigen. Aktuell **nicht synchron**:
 
-- Uncommitted lokal: `TODO.md`, `assets/js/main.js`, `datenschutz.html`, `impressum.html`,
-  `index.html` (Mailto-Obfuskierung + TODO-Notiz zu Kontaktformular-Spamschutz)
-- Neu, noch nicht getrackt: `CLAUDE.md`, `email-uebersicht-fuer-artur.md`,
-  `webseite-offene-baustellen.md` (diese Datei)
-- Letzter Commit: `05e3690` (10.07.2026) — "email-backup/ zur .gitignore hinzufuegen"
-- → Änderungen sind lokal getestet (Formular-Test war live erfolgreich), warten auf Freigabe zum
-  Deployen auf beide Systeme.
+- ✅ Auf GitHub: Mailto-Obfuskierung (`main.js`, `index.html`, `impressum.html`, `datenschutz.html`)
+  + Projekt-Doku nach `docs/` verschoben — beides committed und gepusht.
+- 🔴 **Auf lima-city-FTP fehlt noch:** die Mailto-Obfuskierung — Code ist lokal getestet
+  (Formular-Test live erfolgreich), aber der FTP-Upload wurde nie bestätigt/durchgeführt. GitHub
+  und Produktivseite zeigen aktuell unterschiedlichen Stand.
 
 ## 6. E-Mail-Postfach (Details siehe `email-uebersicht-fuer-artur.md`)
 
