@@ -55,13 +55,13 @@
     var note = form.querySelector('.form-note');
     var submitBtn = form.querySelector('button[type="submit"]');
 
-    // Timing-Check-Feld: Zeitpunkt, an dem das Formular geladen wurde --
-    // kontakt.php lehnt Einsendungen ab, die schneller als 2s danach kommen
-    // (typisch fuer automatisierte Bot-Submits, keine echten Nutzer).
-    var geladenUmFeld = form.querySelector('#p-geladen-um');
-    if (geladenUmFeld) {
-      geladenUmFeld.value = String(Date.now());
-    }
+    // Timing-Check: Dauer zwischen Laden und Absenden wird komplett auf der
+    // Uhr des Besuchers gemessen (performance.now(), zwei Messpunkte auf
+    // demselben Client) und als fertige Millisekundenzahl mitgeschickt --
+    // NICHT ein Zeitstempel, den der Server gegen seine eigene Uhr prueft.
+    // Client-/Server-Uhren koennen mehrere Sekunden auseinanderliegen, das
+    // wuerde sonst auch echte Nutzer faelschlich als "zu schnell" blockieren.
+    var formularGeladenBei = window.performance && performance.now ? performance.now() : Date.now();
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
@@ -75,7 +75,7 @@
       var anliegen = form.querySelector('#p-anliegen').value;
       var nachricht = form.querySelector('#p-nachricht').value.trim();
       var firma = form.querySelector('#p-firma').value.trim(); // Honeypot, bleibt fuer Menschen leer
-      var geladenUm = geladenUmFeld ? geladenUmFeld.value : '';
+      var vergangeneMs = Math.round((window.performance && performance.now ? performance.now() : Date.now()) - formularGeladenBei);
 
       if (note) {
         note.textContent = 'Wird gesendet …';
@@ -94,7 +94,7 @@
         anliegen: anliegen,
         nachricht: nachricht,
         firma: firma,
-        geladen_um: geladenUm
+        vergangene_ms: String(vergangeneMs)
       });
 
       fetch(KONTAKT_ENDPOINT, {

@@ -7,8 +7,12 @@
 //
 // Spam-Schutz (kein CAPTCHA, komplett unsichtbar fuer echte Nutzer):
 // 1) Honeypot-Feld "firma" -- per CSS versteckt, nur Bots fuellen es aus.
-// 2) Timing-Check -- Formular muss mindestens 2 Sekunden sichtbar gewesen
-//    sein, bevor abgeschickt wird (siehe main.js, Feld "geladen_um").
+// 2) Timing-Check -- das Formular muss mindestens 2 Sekunden sichtbar
+//    gewesen sein. Die Dauer wird komplett auf der Uhr des Besuchers
+//    gemessen (main.js, performance.now()) und als fertige Millisekunden-
+//    zahl "vergangene_ms" mitgeschickt -- kein Vergleich gegen die Server-
+//    Uhr, das wuerde bei Client-/Server-Uhrzeitversatz auch echte Nutzer
+//    faelschlich blockieren.
 // 3) IP-Rate-Limit -- max. 1 Anfrage pro IP alle 30 Sekunden.
 // Bei Honeypot/Timing wird ein gefaelschter Erfolg zurueckgegeben (Bots
 // sollen nicht merken, dass sie erkannt wurden), beim Rate-Limit eine
@@ -32,9 +36,8 @@ if (feld("firma") !== "") {
 }
 
 // --- Timing-Check ---
-$geladenUm = isset($_POST["geladen_um"]) ? (int) $_POST["geladen_um"] : 0;
-$jetzt = round(microtime(true) * 1000);
-if ($geladenUm <= 0 || ($jetzt - $geladenUm) < 2000) {
+$vergangeneMs = isset($_POST["vergangene_ms"]) ? (int) $_POST["vergangene_ms"] : 0;
+if ($vergangeneMs < 2000) {
     echo $FAKE_SUCCESS;
     exit;
 }
