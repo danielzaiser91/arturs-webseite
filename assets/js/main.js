@@ -120,7 +120,7 @@
           if (data.success) {
             form.reset();
             if (note) {
-              note.textContent = 'Danke! Ihre Anfrage wurde gesendet, wir melden uns zeitnah zurück.';
+              note.textContent = 'Vielen Dank! Ihre Nachricht ist angekommen — wir melden uns bald persönlich bei Ihnen.';
               note.setAttribute('data-state', 'sent');
             }
           } else {

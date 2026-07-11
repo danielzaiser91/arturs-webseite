@@ -11,24 +11,34 @@ Gesamtstatus.
 
 ## 1. Rechtliches (nur Artur kann entscheiden)
 
-- **EU-Streitschlichtung / Verbraucherstreitbeilegung** (`impressum.html`): Absatz ist noch als
-  Platzhalter markiert (`[Bitte gemeinsam mit Artur final prüfen/anpassen]`) — Artur muss
-  entscheiden, ob er an einem Streitschlichtungsverfahren teilnimmt.
-- **Alle drei Rechtstexte** (Impressum, Datenschutz, AGB) sind fachlich vollständig (alle Fakten
-  korrekt drin), aber noch nicht anwaltlich geprüft — "Entwurf, nicht rechtsverbindlich"-Banner ist
-  noch aktiv.
-- **Eigene AGB**: aktuell keine, es gilt gesetzliches Recht (rechtlich zulässig). Wartet auf Antwort
-  der Handwerkskammer Koblenz zu einer möglichen Muster-AGB.
-- **Echte Kundenbewertung fehlt**: "Über uns"-Sektion zeigt noch ein erfundenes, klar als
-  Platzhalter markiertes Beispiel-Zitat.
+- 🔴 **Widerrufsbelehrung klären — wichtigster offener Rechtspunkt.** Kommen Aufträge mit
+  Privatkunden per Telefon/E-Mail/WhatsApp zustande (Fernabsatz), braucht es eine
+  Widerrufsbelehrung — ohne sie verlängert sich die Widerrufsfrist auf über ein Jahr und es
+  drohen Abmahnungen. Zuerst mit Artur klären, wie seine Aufträge tatsächlich geschlossen
+  werden; günstige Lösungen: HWK-Muster-AGB (bereits angefragt) oder das amtliche Muster aus
+  Anlage 1 zu Art. 246a EGBGB. Details in `TODO.md` → „Kritische Prüfpunkte".
+- **Verbraucherstreitbeilegung**: Im Impressum steht jetzt die Standard-Erklärung „weder
+  verpflichtet noch bereit" (Platzhalter-Vermerk entfernt) — Artur muss diese Wahl nur noch
+  bestätigen (Frage 3 im Fragebogen).
+- **Rechtstexte modernisiert (11.07.2026), Restprüfung optional**: Impressum auf § 5 DDG
+  umgestellt (TMG außer Kraft), toter EU-ODR-Absatz entfernt (Plattform seit 20.07.2025
+  eingestellt), Datenschutzerklärung deutlich ausgebaut (Rechtsgrundlagen, WhatsApp-Hinweis,
+  Spamschutz, keine Cookies, Aufsichtsbehörde RLP). Die „Entwurf"-Banner sind von der Website
+  entfernt; eine anwaltliche Komplettprüfung ist aus unserer Sicht nur noch für das
+  Widerrufs-Thema (Punkt oben) sinnvoll.
+- **Eigene AGB**: aktuell keine, es gilt gesetzliches Recht (rechtlich zulässig; steht so jetzt
+  auch selbstbewusst formuliert auf der AGB-Seite, ohne „wir prüfen noch"-Vermerk). Wartet auf
+  Antwort der Handwerkskammer Koblenz zu einer möglichen Muster-AGB.
+- **Echte Kundenbewertung fehlt weiterhin**: Das erfundene Platzhalter-Zitat wurde komplett von
+  der Seite entfernt; die „Über uns"-Sektion hat stattdessen jetzt einen echten Text über den
+  Familienbetrieb. Sobald Artur eine echte Kundenstimme liefert, bauen wir sie ein.
 
 ## 2. Content & Fotos (Artur muss liefern)
 
 - **3 von 6 Bildern sind Stock-/Platzhalterfotos** (Hero, "Verkauf", "Ankauf & Taxierung") —
   Wikimedia-Commons-Bilder, keine echten Aufnahmen von Artur/seiner Arbeit. Die anderen 3
-  ("Klavierstimmung", "Restaurierung", "Über uns") sind bereits echte Fotos.
-- **"Im Aufbau"-Hinweis im Footer** hängt direkt an obigem Punkt — kann erst raus, wenn die
-  restlichen Fotos da sind.
+  ("Klavierstimmung", "Restaurierung", "Über uns") sind bereits echte Fotos. Der Footer weist
+  die Herkunft weiterhin korrekt aus (neutraler Bildnachweis mit verlinkten CC-Lizenzen).
 
 ## 3. SEO & Sichtbarkeit
 
@@ -77,3 +87,9 @@ Gesamtstatus.
   FTP live.
 - `og:url`/`og:image` auf allen 4 Seiten von der alten `ace2001.lima-city.de`-Adresse auf die echte
   Domain `westerwald-pianoservice.de` korrigiert, auf GitHub und FTP live.
+- Kompletter Text-Überhaul aller 4 Seiten (11.07.2026, Branch `text-ueberarbeitung`): natürlichere,
+  persönlichere Sprache im Ton des Familienbetriebs; „Über uns" mit echtem Text statt
+  Platzhalter-Testimonial; „Entwurf"-Banner, „im Aufbau"-Hinweis und „wir prüfen noch"-Vermerke
+  von der Website entfernt und als Prüfliste nach `TODO.md` überführt; Impressum auf § 5 DDG,
+  EU-ODR-Absatz entfernt; Datenschutzerklärung ausgebaut; Bildnachweis mit klickbaren
+  CC-Lizenz-Links.
