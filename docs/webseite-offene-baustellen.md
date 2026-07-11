@@ -36,10 +36,6 @@ Gesamtstatus.
   Seiten** — Google indexiert die Seite aktuell überhaupt nicht. Bewusst gesetzt, bis die
   Rechtstexte final geprüft sind (siehe Kommentar im `<head>` von `index.html`), blockiert aber
   komplett die in `WEBSITE_PLAN.md` beschriebene Local-SEO-Strategie, solange es aktiv bleibt.
-- 🆕 **Neu gefunden, jetzt veraltet:** `og:url` und `og:image` zeigen auf allen 4 Seiten noch auf
-  `https://ace2001.lima-city.de/...` statt auf die seit dem Domain-Umzug aktive eigene Domain
-  `https://westerwald-pianoservice.de/...`. Link-Vorschauen (WhatsApp, Discord, etc.) verlinken
-  seit dem Umzug auf die falsche URL.
 - **Kein Schema.org/`LocalBusiness`-Structured-Data** — in `WEBSITE_PLAN.md` explizit als
   SEO-Maßnahme vorgesehen (Google-Maps/Local-Pack-Eligibility), nie umgesetzt.
 - **Keine `sitemap.xml`.**
@@ -51,21 +47,10 @@ Gesamtstatus.
 
 - **Kontaktformular (`assets/php/kontakt.php`) hat kein Honeypot-Feld, kein Rate-Limiting/Captcha**
   — offen, siehe auch `TODO.md` → "Potenzielle Verbesserungen".
-- **Mailto-Links wurden per JS obfuskiert** (`main.js` + `data-mail-user`/`data-mail-domain` in
-  `index.html`, `impressum.html`, `datenschutz.html`), um Scraper-Bots zu erschweren — Code ist
-  fertig, aber **noch nicht deployed** (siehe Punkt 5).
-- **Greylisting auf dem lima-city-Postfach aktiviert** (server-seitig, kein Repo-Code) — erledigt.
-
 ## 5. Deployment-Status (aktueller Sync-Zustand zwischen GitHub und lima-city-FTP)
 
-Laut Deploy-Regel in `CLAUDE.md` müssen GitHub (Pages) und lima-city-FTP (Produktivseite) immer
-denselben Stand zeigen. Aktuell **nicht synchron**:
-
-- ✅ Auf GitHub: Mailto-Obfuskierung (`main.js`, `index.html`, `impressum.html`, `datenschutz.html`)
-  + Projekt-Doku nach `docs/` verschoben — beides committed und gepusht.
-- 🔴 **Auf lima-city-FTP fehlt noch:** die Mailto-Obfuskierung — Code ist lokal getestet
-  (Formular-Test live erfolgreich), aber der FTP-Upload wurde nie bestätigt/durchgeführt. GitHub
-  und Produktivseite zeigen aktuell unterschiedlichen Stand.
+✅ GitHub und lima-city-FTP sind aktuell synchron — letzter Stand auf beiden: Mailto-Obfuskierung
++ og:url/og:image-Fix.
 
 ## 6. E-Mail-Postfach (Details siehe `email-uebersicht-fuer-artur.md`)
 
@@ -88,3 +73,7 @@ denselben Stand zeigen. Aktuell **nicht synchron**:
 - Domain-Umzug IONOS → lima-city abgeschlossen, DNS läuft über lima-city.
 - E-Mail-Postfach bei lima-city eingerichtet, alle Backup-Mails migriert, Test-Mail über das
   Kontaktformular end-to-end verifiziert.
+- Mailto-Links per JS obfuskiert (`main.js` + `data-mail-user`/`data-mail-domain`), auf GitHub und
+  FTP live.
+- `og:url`/`og:image` auf allen 4 Seiten von der alten `ace2001.lima-city.de`-Adresse auf die echte
+  Domain `westerwald-pianoservice.de` korrigiert, auf GitHub und FTP live.
