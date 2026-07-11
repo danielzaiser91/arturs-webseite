@@ -5,3 +5,5 @@
 # blockieren, wie es ein pauschales "Disallow: /" hier tun würde.
 User-agent: *
 Allow: /
+
+Sitemap: https://westerwald-pianoservice.de/sitemap.xml

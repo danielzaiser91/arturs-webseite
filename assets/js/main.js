@@ -55,6 +55,14 @@
     var note = form.querySelector('.form-note');
     var submitBtn = form.querySelector('button[type="submit"]');
 
+    // Timing-Check-Feld: Zeitpunkt, an dem das Formular geladen wurde --
+    // kontakt.php lehnt Einsendungen ab, die schneller als 2s danach kommen
+    // (typisch fuer automatisierte Bot-Submits, keine echten Nutzer).
+    var geladenUmFeld = form.querySelector('#p-geladen-um');
+    if (geladenUmFeld) {
+      geladenUmFeld.value = String(Date.now());
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var vorname = form.querySelector('#p-vorname').value.trim();
@@ -66,6 +74,8 @@
       var ort = form.querySelector('#p-ort').value.trim();
       var anliegen = form.querySelector('#p-anliegen').value;
       var nachricht = form.querySelector('#p-nachricht').value.trim();
+      var firma = form.querySelector('#p-firma').value.trim(); // Honeypot, bleibt fuer Menschen leer
+      var geladenUm = geladenUmFeld ? geladenUmFeld.value : '';
 
       if (note) {
         note.textContent = 'Wird gesendet …';
@@ -82,7 +92,9 @@
         plz: plz,
         ort: ort,
         anliegen: anliegen,
-        nachricht: nachricht
+        nachricht: nachricht,
+        firma: firma,
+        geladen_um: geladenUm
       });
 
       fetch(KONTAKT_ENDPOINT, {

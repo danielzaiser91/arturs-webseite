@@ -512,6 +512,18 @@ input:focus, select:focus, textarea:focus {
 }
 textarea { min-height: 96px; resize: vertical; }
 .leadform .btn-primary { justify-content: center; margin-top: 0.3rem; }
+/* Honeypot-Feld: fuer Menschen unsichtbar (nicht display:none, das
+   erkennen manche Bots), fuer Screenreader per aria-hidden ausgeblendet,
+   aus der Tab-Reihenfolge entfernt -- nur Bots, die das Formular blind
+   ausfuellen, tragen hier etwas ein. */
+.hp-field {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
 .form-note {
   font-size: 0.82rem;
   color: var(--fg-dim);

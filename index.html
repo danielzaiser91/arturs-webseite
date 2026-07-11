@@ -26,6 +26,30 @@
 <meta name="twitter:image" content="https://westerwald-pianoservice.de/assets/img/og-image.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%2317130f'/%3E%3Crect x='14' y='16' width='36' height='3' fill='%23c99a4b'/%3E%3Crect x='14' y='19' width='10' height='31' rx='1.5' fill='%23f4ede0'/%3E%3Crect x='27' y='19' width='10' height='31' rx='1.5' fill='%23f4ede0'/%3E%3Crect x='40' y='19' width='10' height='31' rx='1.5' fill='%23f4ede0'/%3E%3Crect x='21' y='19' width='6' height='19' rx='1' fill='%2317130f'/%3E%3Crect x='34' y='19' width='6' height='19' rx='1' fill='%2317130f'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/css/styles.css?v=2">
+<!-- Schema.org LocalBusiness structured data fuer Google Maps/Local-Pack-Eligibility.
+     Bewusst ohne E-Mail-Adresse, um die JS-Obfuskierung der Mailto-Links (siehe main.js)
+     nicht durch eine maschinenlesbare Klartext-Adresse hier zu unterlaufen. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Westerwald-Pianoservice",
+  "image": "https://westerwald-pianoservice.de/assets/img/og-image.jpg",
+  "url": "https://westerwald-pianoservice.de/",
+  "telephone": "+49 2684 949 6265",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Feldstraße 12",
+    "postalCode": "56316",
+    "addressLocality": "Raubach",
+    "addressCountry": "DE"
+  },
+  "areaServed": [
+    "Raubach", "Neuwied", "Bad Honnef", "Siegen", "Koblenz", "Winningen", "Ahrweiler"
+  ],
+  "description": "Klavierstimmung, Verkauf, Ankauf und Restaurierung im Westerwald und Umgebung."
+}
+</script>
 </head>
 <body>
 
@@ -51,7 +75,10 @@
 
 <main id="top">
   <section class="hero">
-    <img class="hero-photo" src="assets/img/hero.jpg" alt="" aria-hidden="true">
+    <picture>
+      <source type="image/webp" srcset="assets/img/hero-880.webp 880w, assets/img/hero-1760.webp 1760w" sizes="100vw">
+      <img class="hero-photo" src="assets/img/hero.jpg" srcset="assets/img/hero-880.jpg 880w, assets/img/hero.jpg 1760w" sizes="100vw" alt="" aria-hidden="true">
+    </picture>
     <div class="hero-scrim" aria-hidden="true"></div>
     <div class="wrap hero-content" data-reveal>
       <p class="eyebrow">Klavierservice aus Raubach für den Westerwald</p>
@@ -83,7 +110,10 @@
       <div class="services-grid">
 
         <div class="service-card" data-reveal>
-          <img class="card-image" src="assets/img/leistung-stimmung.jpg" loading="lazy" alt="Artur Zaiser bei der Stimmung eines Flügels">
+          <picture>
+            <source type="image/webp" srcset="assets/img/leistung-stimmung-380.webp 380w, assets/img/leistung-stimmung-760.webp 760w" sizes="(min-width: 860px) 25vw, 90vw">
+            <img class="card-image" src="assets/img/leistung-stimmung.jpg" srcset="assets/img/leistung-stimmung-380.jpg 380w, assets/img/leistung-stimmung.jpg 760w" sizes="(min-width: 860px) 25vw, 90vw" loading="lazy" alt="Artur Zaiser bei der Stimmung eines Flügels">
+          </picture>
           <div class="card-body">
             <h3>Klavierstimmung &amp; Wartung</h3>
             <p>Regelmäßige Stimmung, Regulierung und Intonation, inklusive Einbau von Stummschaltungen und Luftbefeuchtern — damit Ihr Instrument seinen Klang über Jahre behält.</p>
@@ -92,7 +122,10 @@
         </div>
 
         <div class="service-card" data-reveal>
-          <img class="card-image" src="assets/img/leistung-verkauf.jpg" loading="lazy" alt="Nahaufnahme einer Klaviertastatur">
+          <picture>
+            <source type="image/webp" srcset="assets/img/leistung-verkauf-380.webp 380w, assets/img/leistung-verkauf-760.webp 760w" sizes="(min-width: 860px) 25vw, 90vw">
+            <img class="card-image" src="assets/img/leistung-verkauf.jpg" srcset="assets/img/leistung-verkauf-380.jpg 380w, assets/img/leistung-verkauf.jpg 760w" sizes="(min-width: 860px) 25vw, 90vw" loading="lazy" alt="Nahaufnahme einer Klaviertastatur">
+          </picture>
           <div class="card-body">
             <h3>Verkauf — neu &amp; gebraucht</h3>
             <p>Klaviere, Flügel und Digitalpianos, sorgfältig ausgewählt und fair beraten — inklusive Beratungshilfe bei Privatkauf und Transport auf Wunsch.</p>
@@ -101,7 +134,10 @@
         </div>
 
         <div class="service-card" data-reveal>
-          <img class="card-image" src="assets/img/leistung-ankauf.jpg" loading="lazy" alt="Tastatur eines gut erhaltenen älteren Klaviers">
+          <picture>
+            <source type="image/webp" srcset="assets/img/leistung-ankauf-380.webp 380w, assets/img/leistung-ankauf-760.webp 760w" sizes="(min-width: 860px) 25vw, 90vw">
+            <img class="card-image" src="assets/img/leistung-ankauf.jpg" srcset="assets/img/leistung-ankauf-380.jpg 380w, assets/img/leistung-ankauf.jpg 760w" sizes="(min-width: 860px) 25vw, 90vw" loading="lazy" alt="Tastatur eines gut erhaltenen älteren Klaviers">
+          </picture>
           <div class="card-body">
             <h3>Ankauf &amp; Taxierung</h3>
             <p>Sie möchten Ihr Klavier verkaufen oder wissen, was es wert ist? Faire Einschätzung vor Ort, Taxierung und eine unkomplizierte Abwicklung.</p>
@@ -110,7 +146,10 @@
         </div>
 
         <div class="service-card" data-reveal>
-          <img class="card-image" src="assets/img/leistung-restaurierung.jpg" loading="lazy" alt="Nahaufnahme des Resonanzbodens und der Saiten eines Flügels">
+          <picture>
+            <source type="image/webp" srcset="assets/img/leistung-restaurierung-380.webp 380w, assets/img/leistung-restaurierung-760.webp 760w" sizes="(min-width: 860px) 25vw, 90vw">
+            <img class="card-image" src="assets/img/leistung-restaurierung.jpg" srcset="assets/img/leistung-restaurierung-380.jpg 380w, assets/img/leistung-restaurierung.jpg 760w" sizes="(min-width: 860px) 25vw, 90vw" loading="lazy" alt="Nahaufnahme des Resonanzbodens und der Saiten eines Flügels">
+          </picture>
           <div class="card-body">
             <h3>Restaurierung &amp; Reparatur</h3>
             <p>Von der kleinen Reparatur bis zur vollständigen Aufarbeitung historischer Instrumente — auf Wunsch auch bei Ihnen daheim.</p>
@@ -126,7 +165,10 @@
 
   <section class="about" id="ueber-uns">
     <div class="wrap about-grid">
-      <img class="about-photo" data-reveal src="assets/img/ueber-uns.jpg" loading="lazy" alt="Artur Zaiser an einem Flügel">
+      <picture>
+        <source type="image/webp" srcset="assets/img/ueber-uns-500.webp 500w, assets/img/ueber-uns-1000.webp 1000w" sizes="(min-width: 860px) 45vw, 90vw">
+        <img class="about-photo" data-reveal src="assets/img/ueber-uns.jpg" srcset="assets/img/ueber-uns-500.jpg 500w, assets/img/ueber-uns.jpg 1000w" sizes="(min-width: 860px) 45vw, 90vw" loading="lazy" alt="Artur Zaiser an einem Flügel">
+      </picture>
       <div class="about-text-col">
         <div data-reveal>
           <p class="eyebrow">Über uns</p>
@@ -169,6 +211,11 @@
         </div>
       </div>
       <form class="leadform" data-reveal>
+        <div class="hp-field" aria-hidden="true">
+          <label for="p-firma">Firma</label>
+          <input id="p-firma" name="firma" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" id="p-geladen-um" name="geladen_um" value="">
         <div class="field-row two">
           <div>
             <label for="p-vorname">Vorname</label>

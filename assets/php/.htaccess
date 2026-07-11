@@ -1,0 +1,5 @@
+# Rate-Limit-Datenfile darf nie direkt per HTTP abrufbar sein (enthaelt
+# gehashte IP-Adressen von Formular-Einsendern).
+<Files ".rate_limit.json">
+  Require all denied
+</Files>
