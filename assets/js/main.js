@@ -11,7 +11,7 @@
   });
 
   // Kontaktformular-Endpunkt: eigenes PHP-Skript auf lima-city (gleiches
-  // Prinzip wie Arturs altes Formular -- direkter mail()-Versand an sein
+  // Prinzip wie das alte Formular -- direkter mail()-Versand ans eigene
   // Postfach, kein Drittanbieter). Funktioniert nur auf der lima-city-
   // Live-Seite, nicht auf der statischen GitHub-Pages-Testumgebung.
   var KONTAKT_ENDPOINT = 'assets/php/kontakt.php';

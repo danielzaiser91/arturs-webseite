@@ -33,6 +33,14 @@ Gesamtstatus.
   der Seite entfernt; die „Über uns"-Sektion hat stattdessen jetzt einen echten Text über den
   Familienbetrieb. Sobald Artur eine echte Kundenstimme liefert, bauen wir sie ein.
 
+## 1b. Neue Fragen an Artur (aus dem Thilemann-Vergleich, siehe `vergleich-piano-thilemann.md`)
+
+- **Seit wann im Klavierhandwerk?** Eine Trust-Zeile wie „Klavierhandwerk seit 19xx" (Vorbild
+  Thilemann: „seit 1924") wäre das stärkste fehlende Vertrauenssignal — wird nur mit echter
+  Jahreszahl eingetragen, nichts erfinden. → Frage 9 im Fragebogen.
+- **Telefonische Erreichbarkeitszeiten?** Für Kontaktbereich + Schema.org `openingHours`.
+  → Frage 10 im Fragebogen.
+
 ## 2. Content & Fotos (Artur muss liefern)
 
 - **3 von 6 Bildern sind Stock-/Platzhalterfotos** (Hero, "Verkauf", "Ankauf & Taxierung") —
@@ -110,3 +118,11 @@ Gesamtstatus.
   noch"-Vermerke von der Website entfernt und als Prüfliste nach `TODO.md` überführt; Impressum
   auf § 5 DDG, EU-ODR-Absatz entfernt; Datenschutzerklärung ausgebaut; Bildnachweis mit
   klickbaren CC-Lizenz-Links.
+- **Professionalisierungs-Pass nach Wettbewerbsvergleich** (11.07.2026, siehe
+  `vergleich-piano-thilemann.md`): alle „Artur Zaiser"-Nennungen aus den Website-Texten entfernt
+  (Meta-Tags, Hero, „Über uns", Bild-Alt-Texte) — durchgehende „Wir"-Sprache wie im
+  Branchenstandard, Name nur noch im Impressum und als Datenschutz-Verantwortlicher;
+  Bildnachweis vom Startseiten-Footer in einen eigenen Impressum-Abschnitt verlegt
+  (branchenübliche Praxis, CC-BY-SA-konform); interne Hinweis-Kommentare (TODO-Verweis,
+  Spamschutz-Begründung) aus dem öffentlichen HTML-Quelltext entfernt; Fragebogen um Fragen 9
+  (seit wann im Handwerk) und 10 (Erreichbarkeitszeiten) erweitert.
