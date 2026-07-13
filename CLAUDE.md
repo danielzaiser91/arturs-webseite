@@ -55,7 +55,9 @@ Sync-Tools liegen in `.sync-tools/` (nicht im Git-Repo, siehe `.gitignore` — e
   Kategorie-Überschriften, klickbares Inhaltsverzeichnis, und die Keep-Together-Regel (siehe unten).
 - **`push_fragebogen.py`** — baut/aktualisiert den Fragebogen-Tab neu (nur bei Bedarf, überschreibt
   den kompletten Tab-Inhalt). Farbige Pill-Optionen (grün=Ja, rot=Nein, gelb=Sonstiges), echte
-  Checkboxen, Seitenumbruch vor Frage 5.
+  Checkboxen. Kein fester Seitenumbruch zwischen Fragen (erzeugt bei wachsendem Inhalt halb
+  leere Seiten) — die Keep-Together-Regeln pro Frageblock regeln den Umbruch automatisch; nur
+  die Feedback-Sektion beginnt bewusst auf neuer Seite.
 - **`push_referenzen.py`** — schreibt `docs/email-uebersicht-fuer-artur.md` in den Referenzen-Tab
   (Markdown-Tabellen werden dabei zu einzeiligen Bullet-Listen konvertiert, da native Docs-Tabellen
   bei dieser Menge an Zeilen nicht praktikabel sind).
