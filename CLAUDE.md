@@ -42,9 +42,12 @@ sich verständlich und aktuell sein, nicht nur im Kontext des Chats.
 ### Google-Doc-Sync — wie es funktioniert
 
 Google Doc: https://docs.google.com/document/d/1279KnXk6Lo_Cg64SrvxRv_ZHT8umytUOPUhtFdM6ikQ/edit
-mit drei Tabs: **"Offene Baustellen"** (Spiegel von `docs/webseite-offene-baustellen.md`),
-**"Fragen an Artur"** (Checkbox-Fragebogen für offene Entscheidungen) und **"Referenzen"** (Spiegel
-von `docs/email-uebersicht-fuer-artur.md`).
+mit vier Tabs: **"Offene Baustellen"** (Spiegel von `docs/webseite-offene-baustellen.md`),
+**"Fragen an Artur"** (Checkbox-Fragebogen für offene Entscheidungen), **"Übersicht Emails"**
+(Spiegel von `docs/email-uebersicht-fuer-artur.md`; hieß früher "Referenzen", von Daniel
+umbenannt) und **"Thielemann Vergleich und Analyse"** (Spiegel von `docs/vergleich-fuer-artur.md`
+— der laienverständlichen Fassung von `docs/vergleich-piano-thilemann.md`; Schreibweise
+"Thielemann" mit ie stammt vom User, beim Tab-Lookup exakt so verwenden).
 
 Sync-Tools liegen in `.sync-tools/` (nicht im Git-Repo, siehe `.gitignore` — enthält u. a.
 `token.json` mit dem OAuth-Refresh-Token):
@@ -58,9 +61,13 @@ Sync-Tools liegen in `.sync-tools/` (nicht im Git-Repo, siehe `.gitignore` — e
   Checkboxen. Kein fester Seitenumbruch zwischen Fragen (erzeugt bei wachsendem Inhalt halb
   leere Seiten) — die Keep-Together-Regeln pro Frageblock regeln den Umbruch automatisch; nur
   die Feedback-Sektion beginnt bewusst auf neuer Seite.
-- **`push_referenzen.py`** — schreibt `docs/email-uebersicht-fuer-artur.md` in den Referenzen-Tab
-  (Markdown-Tabellen werden dabei zu einzeiligen Bullet-Listen konvertiert, da native Docs-Tabellen
-  bei dieser Menge an Zeilen nicht praktikabel sind).
+- **`push_referenzen.py`** — schreibt `docs/email-uebersicht-fuer-artur.md` in den Tab
+  "Übersicht Emails" (Markdown-Tabellen werden dabei zu einzeiligen Bullet-Listen konvertiert, da
+  native Docs-Tabellen bei dieser Menge an Zeilen nicht praktikabel sind).
+- **`push_vergleich.py`** — schreibt `docs/vergleich-fuer-artur.md` (Laienfassung des
+  Thilemann-Vergleichs) in den Tab "Thielemann Vergleich und Analyse". Die technische Analyse
+  bleibt in `docs/vergleich-piano-thilemann.md`; bei inhaltlichen Änderungen beide Fassungen
+  pflegen und danach dieses Script ausführen.
 - **`check_and_pull.py`** — vergleicht `modifiedTime` des Docs mit dem letzten bekannten Stand in
   `sync_state.json`. Falls jemand (Artur/Daniel) direkt im Doc editiert hat, zieht es den Inhalt
   automatisch zurück in `docs/webseite-offene-baustellen.md`.
