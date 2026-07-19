@@ -25,8 +25,8 @@ Diese Datei wird nach jeder Entscheidung/Code-Änderung am Projekt aktualisiert 
 
 ## 1b. Neue Fragen an Artur (aus dem Thilemann-Vergleich, siehe vergleich-piano-thilemann.md)
 
-- Seit wann im Klavierhandwerk? Eine Trust-Zeile wie „Klavierhandwerk seit 19xx" (Vorbild Thilemann: „seit 1924") wäre das stärkste fehlende Vertrauenssignal — wird nur mit echter Jahreszahl eingetragen, nichts erfinden. → Frage 9 im Fragebogen.
-- Telefonische Erreichbarkeitszeiten? Für Kontaktbereich + Schema.org openingHours. → Frage 10 im Fragebogen.
+- ✅ Beantwortet (18.07.2026, per WhatsApp): Seit 2008 Klavierbauer, seit 2010 selbstständig — als Trust-Zeile in „Über uns" eingebaut.
+- ✅ Beantwortet (18.07.2026, per WhatsApp): Keine festen Erreichbarkeitszeiten, aber „wenn das wichtig wäre, dann von 9 bis 19 Uhr, denke ich" — bewusst unverbindlich als „Meist zwischen 9 und 19 Uhr" im Kontaktbereich eingebaut, kein Schema.org `openingHours` (das wäre eine zu feste Zusage für eine von Artur selbst unsicher formulierte Angabe).
 
 ## 2. Content & Fotos (Artur muss liefern)
 
