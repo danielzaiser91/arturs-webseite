@@ -79,12 +79,13 @@ Sync-Tools liegen in `.sync-tools/` (nicht im Git-Repo, siehe `.gitignore` — e
   automatisch zurück in `docs/webseite-offene-baustellen.md`.
 - **Wichtig:** jedes `push_*.py`-Script ruft am Ende `record_own_push()` auf (aus
   `gdocs_common.py`) — das aktualisiert `sync_state.json` mit dem neuen `modifiedTime`, damit der
-  *eigene* Push nicht fälschlich vom Scheduled Task als "Artur hat editiert" erkannt und die lokale
-  Datei mit einer verlustbehafteten Rückkonvertierung überschrieben wird. Bei neuen Push-Scripts
-  diesen Aufruf nicht vergessen.
-- Läuft alle 20 Minuten automatisch als **Scheduled Task** (`baustellen-doc-sync-check`) — erkennt
-  Doc-Änderungen von Artur/Daniel automatisch und meldet sich mit einer Zusammenfassung, wenn
-  Handlungsbedarf besteht.
+  *eigene* Push nicht fälschlich als "Artur hat editiert" erkannt und die lokale Datei mit einer
+  verlustbehafteten Rückkonvertierung überschrieben wird, falls `check_and_pull.py` danach läuft.
+  Bei neuen Push-Scripts diesen Aufruf nicht vergessen.
+- Der automatische Scheduled Task (`baustellen-doc-sync-check`) wurde von Daniel am 19.07.2026
+  deaktiviert und gelöscht (nicht mehr gebraucht). `check_and_pull.py` existiert weiterhin und kann
+  bei Bedarf **manuell** ausgeführt werden, um Doc-Änderungen von Artur/Daniel zurückzuziehen — es
+  läuft aber nicht mehr automatisch im Hintergrund.
 - Google Cloud Projekt "Baustellen-Sync", Credentials/Doc-ID in `my_secrets.md` unter "Google Cloud
   Baustellen-Sync" dokumentiert.
 - Bekannte Einschränkung: Markdown ↔ Google Docs ist keine perfekte 1:1-Konvertierung (Tabellen,
