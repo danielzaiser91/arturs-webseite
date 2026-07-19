@@ -42,12 +42,23 @@ sich verständlich und aktuell sein, nicht nur im Kontext des Chats.
 ### Google-Doc-Sync — wie es funktioniert
 
 Google Doc: https://docs.google.com/document/d/1279KnXk6Lo_Cg64SrvxRv_ZHT8umytUOPUhtFdM6ikQ/edit
-mit vier Tabs: **"Offene Baustellen"** (Spiegel von `docs/webseite-offene-baustellen.md`),
-**"Fragen an Artur"** (Checkbox-Fragebogen für offene Entscheidungen), **"Übersicht Emails"**
-(Spiegel von `docs/email-uebersicht-fuer-artur.md`; hieß früher "Referenzen", von Daniel
-umbenannt) und **"Thielemann Vergleich und Analyse"** (Spiegel von `docs/vergleich-fuer-artur.md`
-— der laienverständlichen Fassung von `docs/vergleich-piano-thilemann.md`; Schreibweise
-"Thielemann" mit ie stammt vom User, beim Tab-Lookup exakt so verwenden).
+mit drei Tabs: **"Offene Baustellen"** (Spiegel von `docs/webseite-offene-baustellen.md`),
+**"Übersicht Emails"** (Spiegel von `docs/email-uebersicht-fuer-artur.md`; hieß früher
+"Referenzen", von Daniel umbenannt) und **"Thielemann Vergleich und Analyse"** (Spiegel von
+`docs/vergleich-fuer-artur.md` — der laienverständlichen Fassung von
+`docs/vergleich-piano-thilemann.md`; Schreibweise "Thielemann" mit ie stammt vom User, beim
+Tab-Lookup exakt so verwenden).
+
+Es gab bis 19.07.2026 einen vierten Tab **"Fragen an Artur"** (Checkbox-Fragebogen für offene
+Entscheidungen, gebaut von `push_fragebogen.py`) — der ist entfernt. Grund: der angekreuzt/nicht-
+angekreuzt-Zustand der Checkbox-Pills ließ sich über die Docs API nicht auslesen (`paragraph.bullet`
+hat laut API-Schema nur `listId`/`nestingLevel`/`textStyle`, kein "checked"-Feld, und auch kein
+Strikethrough-Signal wie bei Googles nativer Checklist-Funktion) — Artur musste seine Antworten
+daher händisch beschreiben. Alle 10 Fragebogen-Fragen sind beantwortet und jetzt direkt als normale
+Bullet-Punkte (mit Dringlichkeits-Emoji) in die passenden Abschnitte von
+`webseite-offene-baustellen.md` integriert; `push_fragebogen.py` wurde gelöscht. Neue offene Fragen
+an Artur künftig direkt als Freitext-Bullet in der passenden Kategorie stellen, nicht mehr über ein
+separates Checkbox-Format — das ist zuverlässig auslesbar.
 
 Sync-Tools liegen in `.sync-tools/` (nicht im Git-Repo, siehe `.gitignore` — enthält u. a.
 `token.json` mit dem OAuth-Refresh-Token):
@@ -56,11 +67,6 @@ Sync-Tools liegen in `.sync-tools/` (nicht im Git-Repo, siehe `.gitignore` — e
   Baustellen". **Nach jeder Aktualisierung der .md-Datei ausführen**, damit das Doc synchron
   bleibt (`cd ".sync-tools" && python push_baustellen.py`). Enthält außerdem: farbige
   Kategorie-Überschriften, klickbares Inhaltsverzeichnis, und die Keep-Together-Regel (siehe unten).
-- **`push_fragebogen.py`** — baut/aktualisiert den Fragebogen-Tab neu (nur bei Bedarf, überschreibt
-  den kompletten Tab-Inhalt). Farbige Pill-Optionen (grün=Ja, rot=Nein, gelb=Sonstiges), echte
-  Checkboxen. Kein fester Seitenumbruch zwischen Fragen (erzeugt bei wachsendem Inhalt halb
-  leere Seiten) — die Keep-Together-Regeln pro Frageblock regeln den Umbruch automatisch; nur
-  die Feedback-Sektion beginnt bewusst auf neuer Seite.
 - **`push_referenzen.py`** — schreibt `docs/email-uebersicht-fuer-artur.md` in den Tab
   "Übersicht Emails" (Markdown-Tabellen werden dabei zu einzeiligen Bullet-Listen konvertiert, da
   native Docs-Tabellen bei dieser Menge an Zeilen nicht praktikabel sind).
@@ -87,16 +93,14 @@ Sync-Tools liegen in `.sync-tools/` (nicht im Git-Repo, siehe `.gitignore` — e
 
 ### Regel: Abschnitte dürfen nicht über einen Seitenumbruch auseinanderreißen
 
-In beiden Doc-Tabs gilt: eine logische Einheit (in "Offene Baustellen" eine H2-Sektion inkl. all
-ihrer Bullets; in "Fragen an Artur" eine Frage inkl. aller Options-Pills und der Kommentarzeile)
+Im "Offene Baustellen"-Tab gilt: eine logische Einheit (eine H2-Sektion inkl. all ihrer Bullets)
 bekommt `keepLinesTogether` auf jedem Absatz und `keepWithNext` auf allen Absätzen außer dem
 letzten im Block — verhindert, dass Google Docs die Einheit mittendrin über eine Seite verteilt.
-Bei künftigen Erweiterungen der Push-Scripts (neue Abschnitte/Fragen) dieses Muster beibehalten,
-siehe `block_ranges`-Logik in `push_baustellen.py`/`push_fragebogen.py`. Falls ein expliziter
-Seitenumbruch nötig ist (`insertPageBreak`), diesen immer als **eigenen, abgeschlossenen Absatz**
-einfügen (Page-Break-Request + eigenes `\n`) — landet er im selben Absatz wie nachfolgender Text,
-rendert der leere Rest des Absatzes noch auf der vorherigen Seite (siehe Bugfix in
-`push_fragebogen.py`).
+Bei künftigen Erweiterungen von `push_baustellen.py` (neue Abschnitte) dieses Muster beibehalten,
+siehe `block_ranges`-Logik dort. Falls ein expliziter Seitenumbruch nötig ist (`insertPageBreak`),
+diesen immer als **eigenen, abgeschlossenen Absatz** einfügen (Page-Break-Request + eigenes `\n`)
+— landet er im selben Absatz wie nachfolgender Text, rendert der leere Rest des Absatzes noch auf
+der vorherigen Seite.
 
 ## Deploy-Regel
 

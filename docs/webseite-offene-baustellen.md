@@ -1,41 +1,49 @@
 # Offene Baustellen — Westerwald-Pianoservice Website
+
+Legende: ✅ erledigt · 🔴 kritisch/blockierend · 🟡 offen, Aktion nötig · ⚪ offen, keine Dringlichkeit (wartet auf Artur/Dritte)
+
 ### Inhaltsverzeichnis
+- 0. Kurzübersicht — alle offenen Punkte auf einen Blick
 - 1. Rechtliches (nur Artur kann entscheiden)
-- 1b. Neue Fragen an Artur (aus dem Thilemann-Vergleich, siehe vergleich-piano-thilemann.md)
 - 2. Content & Fotos (Artur muss liefern)
 - 3. SEO & Sichtbarkeit
 - 4. Sicherheit / Spam-Schutz
 - 5. Deployment-Status (aktueller Sync-Zustand zwischen GitHub und lima-city-FTP)
-- 6. E-Mail-Postfach (Details siehe email-uebersicht-fuer-artur.md)
+- 6. E-Mail-Postfach (Details siehe `email-uebersicht-fuer-artur.md`)
 - 7. Bereits erledigt (Referenz)
 
 
-Stand: 11.07.2026. Vollständige Durchsicht aller Repo-Dateien (HTML, CSS, JS, PHP, Konfig, Rechtstexte). Ersetzt/konsolidiert die Punkte aus TODO.md und ARTUR_WEBSITE_REVIEW.md in einer kategorisierten Übersicht — die beiden Dateien bleiben als Detail-Historie bestehen, diese hier ist der aktuelle Gesamtstatus.
+Stand: 11.07.2026, Struktur aktualisiert 19.07.2026 (Kurzübersicht ergänzt, Fragebogen-Antworten direkt in die Abschnitte integriert, separate Fragebogen-Ansicht aufgelöst). Ursprünglich: vollständige Durchsicht aller Website-Inhalte (Texte, Rechtstexte, Technik). Diese Übersicht ist der aktuelle Gesamtstatus des Projekts, kategorisiert nach Themen.
 
-Diese Datei wird nach jeder Entscheidung/Code-Änderung am Projekt aktualisiert — siehe CLAUDE.md.
+Diese Datei wird nach jeder Entscheidung oder Code-Änderung am Projekt aktualisiert.
 
+
+## 0. Kurzübersicht — alle offenen Punkte
+
+- 🔴 Widerrufsbelehrung klären (Rechtsfrage, blockiert auch die SEO-Freigabe) — Details unter 1. Rechtliches
+- 🔴 Seite ist für Google unsichtbar (noindex aktiv), wartet auf die Widerrufsbelehrung — Details unter 3. SEO & Sichtbarkeit
+- 🟡 E-Mail-Speicherlimit dauerhaft erhöhen (Artur will das, noch nicht umgesetzt) — Details unter 6. E-Mail-Postfach
+- ⚪ Antwort der Handwerkskammer Koblenz zur Muster-AGB steht noch aus — Details unter 1. Rechtliches
+- ⚪ Echte Kundenbewertung steht aus, Artur meldet sich „später" — Details unter 1. Rechtliches
+- ⚪ Echte Fotos (Hero, Verkauf, Ankauf) stehen aus, Stockfotos sind für jetzt ok — Details unter 2. Content & Fotos
 
 ## 1. Rechtliches (nur Artur kann entscheiden)
 
-- 🔴 Widerrufsbelehrung klären — wichtigster offener Rechtspunkt. Kommen Aufträge mit Privatkunden per Telefon/E-Mail/WhatsApp zustande (Fernabsatz), braucht es eine Widerrufsbelehrung — ohne sie verlängert sich die Widerrufsfrist auf über ein Jahr und es drohen Abmahnungen. Zuerst mit Artur klären, wie seine Aufträge tatsächlich geschlossen werden; günstige Lösungen: HWK-Muster-AGB (bereits angefragt) oder das amtliche Muster aus Anlage 1 zu Art. 246a EGBGB. Juristische Details in TODO.md → „Kritische Prüfpunkte".
-- Verbraucherstreitbeilegung: Im Impressum steht jetzt die Standard-Erklärung „weder verpflichtet noch bereit" (Platzhalter-Vermerk entfernt) — Artur muss diese Wahl nur noch bestätigen (Frage 3 im Fragebogen).
-- Rechtstexte modernisiert (11.07.2026), Restprüfung optional: Impressum auf § 5 DDG umgestellt (TMG außer Kraft), toter EU-ODR-Absatz entfernt (Plattform seit 20.07.2025 eingestellt), Datenschutzerklärung deutlich ausgebaut (Rechtsgrundlagen, WhatsApp-Hinweis, Spamschutz, keine Cookies, Aufsichtsbehörde RLP). Die „Entwurf"-Banner sind von der Website entfernt; eine anwaltliche Komplettprüfung ist aus unserer Sicht nur noch für das Widerrufs-Thema (Punkt oben) sinnvoll.
-- Eigene AGB: aktuell keine, es gilt gesetzliches Recht (rechtlich zulässig; steht so jetzt auch selbstbewusst formuliert auf der AGB-Seite, ohne „wir prüfen noch"-Vermerk). Wartet auf Antwort der Handwerkskammer Koblenz zu einer möglichen Muster-AGB.
-- Echte Kundenbewertung fehlt weiterhin: Das erfundene Platzhalter-Zitat wurde komplett von der Seite entfernt; die „Über uns"-Sektion hat stattdessen jetzt einen echten Text über den Familienbetrieb. Sobald Artur eine echte Kundenstimme liefert, bauen wir sie ein.
-
-## 1b. Neue Fragen an Artur (aus dem Thilemann-Vergleich, siehe vergleich-piano-thilemann.md)
-
-- ✅ Beantwortet (18.07.2026, per WhatsApp): Seit 2008 Klavierbauer, seit 2010 selbstständig — als Trust-Zeile in „Über uns" eingebaut.
-- ✅ Beantwortet (18.07.2026, per WhatsApp): Keine festen Erreichbarkeitszeiten, aber „wenn das wichtig wäre, dann von 9 bis 19 Uhr, denke ich" — bewusst unverbindlich als „Meist zwischen 9 und 19 Uhr" im Kontaktbereich eingebaut, kein Schema.org `openingHours` (das wäre eine zu feste Zusage für eine von Artur selbst unsicher formulierte Angabe).
+- 🔴 Widerrufsbelehrung klären — wichtigster offener Rechtspunkt. Kommen Aufträge mit Privatkunden per Telefon/E-Mail/WhatsApp zustande (Fernabsatz, §§ 312c, 312g BGB), braucht es eine Widerrufsbelehrung — ohne sie verlängert sich die Widerrufsfrist auf über ein Jahr und es drohen Abmahnungen. Zuerst mit Artur klären, wie seine Aufträge tatsächlich geschlossen werden (vor Ort per Handschlag = kein Problem; telefonisch/schriftlich = Belehrung nötig); günstige Lösungen: HWK-Muster-AGB (bereits angefragt) oder das amtliche Muster aus Anlage 1 zu Art. 246a EGBGB.
+- ✅ Verbraucherstreitbeilegung bestätigt (19.07.2026): Artur will nicht an einem Streitschlichtungsverfahren teilnehmen — die Standard-Erklärung „weder verpflichtet noch bereit" im Impressum bleibt so, keine Änderung nötig.
+- ✅ Anwaltliche Prüfung bestätigt (19.07.2026): Artur möchte Impressum/Datenschutz/AGB vor dem Live-Gang **nicht** zusätzlich anwaltlich prüfen lassen — reicht ihm so. Rechtstexte modernisiert (11.07.2026): Impressum auf § 5 DDG umgestellt (TMG außer Kraft), toter EU-ODR-Absatz entfernt (Plattform seit 20.07.2025 eingestellt), Datenschutzerklärung deutlich ausgebaut (Rechtsgrundlagen, WhatsApp-Hinweis, Spamschutz, keine Cookies, Aufsichtsbehörde RLP). Die „Entwurf"-Banner sind von der Website entfernt. Einzige verbleibende offene Rechtsfrage bleibt die Widerrufsbelehrung oben.
+- ⚪ Eigene AGB: aktuell keine, es gilt gesetzliches Recht (rechtlich zulässig; steht so jetzt auch selbstbewusst formuliert auf der AGB-Seite, ohne „wir prüfen noch"-Vermerk). Wartet weiterhin auf Antwort der Handwerkskammer Koblenz zu einer möglichen Muster-AGB (Stand 19.07.2026: noch keine Antwort da, unverändert).
+- ⚪ Echte Kundenbewertung fehlt weiterhin: Das erfundene Platzhalter-Zitat wurde komplett von der Seite entfernt; die „Über uns"-Sektion hat stattdessen jetzt einen echten Text über den Familienbetrieb. Stand 19.07.2026: aktuell keine Bewertung zum Einbauen („Später") — Artur schickt evtl. später eine echte Kundenstimme, dann bauen wir sie ein.
 
 ## 2. Content & Fotos (Artur muss liefern)
 
-- 3 von 6 Bildern sind Stock-/Platzhalterfotos (Hero, "Verkauf", "Ankauf & Taxierung") — Wikimedia-Commons-Bilder, keine echten Aufnahmen von Artur/seiner Arbeit. Die anderen 3 ("Klavierstimmung", "Restaurierung", "Über uns") sind bereits echte Fotos. Der Footer weist die Herkunft weiterhin korrekt aus (neutraler Bildnachweis mit verlinkten CC-Lizenzen).
-- "Im Aufbau"-Hinweis im Footer ist inzwischen von der Website entfernt (Teil des Text-Überhauls) — hängt trotzdem weiterhin an den fehlenden echten Fotos oben, falls er später wieder gebraucht wird.
+- ⚪ 3 von 6 Bildern sind Stock-/Platzhalterfotos (Hero, "Verkauf", "Ankauf & Taxierung") — Wikimedia-Commons-Bilder, keine echten Aufnahmen von Artur/seiner Arbeit. Die anderen 3 ("Klavierstimmung", "Restaurierung", "Über uns") sind bereits echte Fotos. Der Footer weist die Herkunft weiterhin korrekt aus (neutraler Bildnachweis mit verlinkten CC-Lizenzen). Stand 19.07.2026: Artur hat aktuell keine weiteren echten Fotos und ist mit den Stockfotos vorerst einverstanden — keine Dringlichkeit, Punkt bleibt aber offen für später.
+- ✅ "Im Aufbau"-Hinweis im Footer ist inzwischen von der Website entfernt (Teil des Text-Überhauls) — hängt trotzdem weiterhin an den fehlenden echten Fotos oben, falls er später wieder gebraucht wird.
 
 ## 3. SEO & Sichtbarkeit
 
-- 🔴 Kritisch, aktiv: <meta name="robots" content="noindex, nofollow"> steht auf allen 4 Seiten — Google indexiert die Seite aktuell überhaupt nicht. Bewusst gesetzt, bis die Widerrufsbelehrung (siehe Punkt 1) geklärt ist — alle anderen Rechtstexte sind bereits modernisiert. Blockiert komplett die in WEBSITE_PLAN.md beschriebene Local-SEO-Strategie, solange es aktiv bleibt. Einziger noch offener Punkt in dieser Kategorie.
+- 🔴 Kritisch, aktiv: <meta name="robots" content="noindex, nofollow"> steht auf allen 4 Seiten — Google indexiert die Seite aktuell überhaupt nicht. Bewusst gesetzt, bis die Widerrufsbelehrung (siehe Punkt 1) geklärt ist — alle anderen Rechtstexte sind bereits modernisiert. Blockiert damit komplett die geplante lokale Google-Sichtbarkeit (Local SEO), solange es aktiv bleibt. Stand 19.07.2026: Artur hat grünes Licht gegeben, die Seite sofort sichtbar zu machen, sobald die Rechtstexte stehen — sobald die Widerrufsbelehrung geklärt ist, kann das noindex direkt entfernt werden, keine weitere Rückfrage nötig.
+
 ## 4. Sicherheit / Spam-Schutz
 
 - ✅ Kontaktformular-Spamschutz (Honeypot-Feld, Timing-Check, IP-Rate-Limit) implementiert, deployed und end-to-end verifiziert. Ein Bug im Timing-Check wurde gefunden und behoben: der ursprüngliche Check verglich einen Client-Zeitstempel gegen die Server-Uhr — bei Uhrzeitversatz zwischen beiden (hier ca. 6-7 Sekunden) wurden dadurch ausnahmslos alle Einsendungen als "zu schnell" erkannt und per Fake-Success verworfen, auch echte Nutzer wären betroffen gewesen. Fix: Dauer wird jetzt komplett auf der Client-Uhr gemessen (performance.now()), kein Uhr-Vergleich mehr. Test-Mail über das echte Formular erfolgreich zugestellt und wieder gelöscht.
@@ -44,11 +52,11 @@ Diese Datei wird nach jeder Entscheidung/Code-Änderung am Projekt aktualisiert 
 
 ✅ GitHub und lima-city-FTP sind synchron — letzter Stand auf beiden: Text-Überhaul (Branch text-ueberarbeitung, gemergt) + Timing-Check-Fix.
 
-## 6. E-Mail-Postfach (Details siehe email-uebersicht-fuer-artur.md)
+## 6. E-Mail-Postfach (Details siehe `email-uebersicht-fuer-artur.md`)
 
-- ✅ Speicherlimit-Problem behoben (vorläufig): Postfach war zu 98,5% voll (1033/1049 MB) — denkbare (aber nicht bestätigte) Teilursache dafür, dass Test-Mails über das Kontaktformular nicht ankamen. 987 alte, isolierte Sent-Nachrichten (vor 2020, keine Antwortkette in ein späteres Jahr) vom Server gelöscht — bleiben vollständig im lokalen Backup erhalten. Sent-Ordner dadurch von ~845 MB auf ~502 MB reduziert.
-- Grundsätzliche Frage nach dauerhafter Speicherlimit-Erhöhung (vermutlich Reseller-Modell, ~0,20 €/GB/Monat) bleibt trotzdem offen — die Löschaktion ist ein Puffer, kein Ersatz für eine Entscheidung, falls das Postfach weiter wächst.
-- Postfach wurde bereits einmal aufgeräumt (Spam/Werbung entfernt, Papierkorb geleert) — siehe Report für vollständige, nach Kontakt sortierte Übersicht aller verbliebenen Mails.
+- ✅ Speicherlimit-Problem behoben (vorläufig): Postfach war zu 98,5% voll (1033/1049 MB) — denkbare (aber nicht bestätigte) Teilursache dafür, dass Test-Mails über das Kontaktformular nicht ankamen. 987 alte, isolierte Sent-Nachrichten (vor 2020, keine Antwortkette in ein späteres Jahr) vom Server gelöscht — bleiben vollständig im lokalen Backup erhalten. Sent-Ordner dadurch von ~845 MB auf ~502 MB reduziert. Stand 19.07.2026: Artur hat diese Archivierung nachträglich bestätigt.
+- 🟡 Offen, jetzt priorisiert: dauerhafte Speicherlimit-Erhöhung (vermutlich Reseller-Modell, ~0,20 €/GB/Monat) — Artur will das Limit erhöhen lassen (Stand 19.07.2026). Braucht eine Aktion im lima-city-Kundenbereich (Tarif/Reseller-Einstellung), keine Website-Änderung — noch nicht umgesetzt.
+- ✅ Postfach wurde bereits einmal aufgeräumt (Spam/Werbung entfernt, Papierkorb geleert) — siehe Report für vollständige, nach Kontakt sortierte Übersicht aller verbliebenen Mails.
 
 ## 7. Bereits erledigt (Referenz)
 
@@ -67,10 +75,9 @@ Diese Datei wird nach jeder Entscheidung/Code-Änderung am Projekt aktualisiert 
 - Bildoptimierung: WebP-Varianten + responsive srcset/<picture> für alle Content-Bilder.
 - Kontaktformular: Honeypot-Feld + Timing-Check + IP-Rate-Limit gegen automatisierten Spam, Timing-Check-Bug (Client-/Server-Uhrzeitversatz) gefunden und behoben, end-to-end verifiziert.
 - Mailbox-Speicherlimit-Engpass behoben: 987 alte, isolierte Sent-Mails (vor 2020) vom Server entfernt, ~343 MB freigegeben, lokales Backup bleibt vollständig.
-- Kompletter Text-Überhaul aller 4 Seiten (11.07.2026, Branch text-ueberarbeitung): natürlichere, persönlichere Sprache im Ton des Familienbetriebs; „Über uns" mit echtem Text statt Platzhalter-Testimonial; „Entwurf"-Banner, „im Aufbau"-Hinweis und „wir prüfen noch"-Vermerke von der Website entfernt und als Prüfliste nach TODO.md überführt; Impressum auf § 5 DDG, EU-ODR-Absatz entfernt; Datenschutzerklärung ausgebaut; Bildnachweis mit klickbaren CC-Lizenz-Links.
-- Professionalisierungs-Pass nach Wettbewerbsvergleich (11.07.2026, siehe vergleich-piano-thilemann.md): alle „Artur Zaiser"-Nennungen aus den Website-Texten entfernt (Meta-Tags, Hero, „Über uns", Bild-Alt-Texte) — durchgehende „Wir"-Sprache wie im Branchenstandard, Name nur noch im Impressum und als Datenschutz-Verantwortlicher; Bildnachweis vom Startseiten-Footer in einen eigenen Impressum-Abschnitt verlegt (branchenübliche Praxis, CC-BY-SA-konform); interne Hinweis-Kommentare (TODO-Verweis, Spamschutz-Begründung) aus dem öffentlichen HTML-Quelltext entfernt; Fragebogen um Fragen 9 (seit wann im Handwerk) und 10 (Erreichbarkeitszeiten) erweitert.
+- Kompletter Text-Überhaul aller 4 Seiten (11.07.2026, Branch text-ueberarbeitung): natürlichere, persönlichere Sprache im Ton des Familienbetriebs; „Über uns" mit echtem Text statt Platzhalter-Testimonial; „Entwurf"-Banner, „im Aufbau"-Hinweis und „wir prüfen noch"-Vermerke von der Website entfernt und als interne Prüfliste festgehalten; Impressum auf § 5 DDG, EU-ODR-Absatz entfernt; Datenschutzerklärung ausgebaut; Bildnachweis mit klickbaren CC-Lizenz-Links.
+- Professionalisierungs-Pass nach Wettbewerbsvergleich (11.07.2026, Details im Tab „Thielemann Vergleich und Analyse"): alle „Artur Zaiser"-Nennungen aus den Website-Texten entfernt (Meta-Tags, Hero, „Über uns", Bild-Alt-Texte) — durchgehende „Wir"-Sprache wie im Branchenstandard, Name nur noch im Impressum und als Datenschutz-Verantwortlicher; Bildnachweis vom Startseiten-Footer in einen eigenen Impressum-Abschnitt verlegt (branchenübliche Praxis, CC-BY-SA-konform); interne Hinweis-Kommentare (TODO-Verweis, Spamschutz-Begründung) aus dem öffentlichen HTML-Quelltext entfernt.
 - WhatsApp-Link-Vorschau am 13.07.2026 mit frischer Test-URL erneut geprüft — funktioniert (Discord bereits zuvor bestätigt).
-
-
-
-
+- Beantwortet (18.07.2026, per WhatsApp): Seit 2008 Klavierbauer, seit 2010 selbstständig — als Trust-Zeile in „Über uns" eingebaut.
+- Beantwortet (18.07.2026, per WhatsApp): Keine festen Erreichbarkeitszeiten, aber „wenn das wichtig wäre, dann von 9 bis 19 Uhr, denke ich" — bewusst unverbindlich als „Meist zwischen 9 und 19 Uhr" im Kontaktbereich eingebaut, kein Schema.org `openingHours` (das wäre eine zu feste Zusage für eine von Artur selbst unsicher formulierte Angabe).
+- Fragebogen aufgelöst (19.07.2026): Die separate Checkbox-Fragebogen-Ansicht (Google-Doc-Tab „Fragen an Artur") wurde entfernt — alle Antworten sind jetzt direkt in den jeweiligen Abschnitten oben vermerkt, mit Dringlichkeits-Symbol markiert (siehe Legende oben) und in die Kurzübersicht (Abschnitt 0) aufgenommen, falls noch offen.
