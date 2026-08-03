@@ -22,7 +22,9 @@ Diese Datei wird nach jeder Entscheidung oder Code-Änderung am Projekt aktualis
 ## 0. Kurzübersicht — alle offenen Punkte
 
 - ✅ Widerrufsbelehrung geklärt und eingebaut, noindex kann entfernt werden — Details unter 1. Rechtliches
-- 🟡 E-Mail-Speicherlimit dauerhaft erhöhen (Artur will das, noch nicht umgesetzt) — Details unter 6. E-Mail-Postfach⚪ Antwort der Handwerkskammer Koblenz zur Muster-AGB steht noch aus — Details unter 1. Rechtliches
+- 🔴 Top-Priorität: E-Mail-Speicherlimit dauerhaft erhöhen (Artur will das, noch nicht umgesetzt) — Details unter 6. E-Mail-Postfach
+- 🔴 Top-Priorität: IONOS-Vertrag kündigen (Domain + E-Mail sind schon zu lima-city umgezogen, IONOS läuft vermutlich unnötig weiter mit) — Details unter 6. E-Mail-Postfach
+- ⚪ Antwort der Handwerkskammer Koblenz zur Muster-AGB steht noch aus — Details unter 1. Rechtliches
 - ⚪ Echte Kundenbewertung steht aus, Artur meldet sich „später" — Details unter 1. Rechtliches
 - ⚪ Echte Fotos (Hero, Ankauf) stehen aus, Stockfotos sind für jetzt ok — Details unter 2. Content & Fotos
 - ⚪ Widerrufsrecht bei Ankauf-Ferngeschäften (Artur kauft Klavier von Privatperson per Telefon/WhatsApp) rechtlich nicht abschließend geprüft — Details unter 1. Rechtliches
@@ -56,7 +58,9 @@ Diese Datei wird nach jeder Entscheidung oder Code-Änderung am Projekt aktualis
 ## 6. E-Mail-Postfach (Details siehe email-uebersicht-fuer-artur.md)
 
 - ✅ Speicherlimit-Problem behoben (vorläufig): Postfach war zu 98,5% voll (1033/1049 MB) — denkbare (aber nicht bestätigte) Teilursache dafür, dass Test-Mails über das Kontaktformular nicht ankamen. 987 alte, isolierte Sent-Nachrichten (vor 2020, keine Antwortkette in ein späteres Jahr) vom Server gelöscht — bleiben vollständig im lokalen Backup erhalten. Sent-Ordner dadurch von ~845 MB auf ~502 MB reduziert. Stand 19.07.2026: Artur hat diese Archivierung nachträglich bestätigt.
-- 🟡 Offen, jetzt priorisiert: dauerhafte Speicherlimit-Erhöhung (vermutlich Reseller-Modell, ~0,20 €/GB/Monat) — Artur will das Limit erhöhen lassen (Stand 19.07.2026). Braucht eine Aktion im lima-city-Kundenbereich (Tarif/Reseller-Einstellung), keine Website-Änderung — noch nicht umgesetzt.✅ Postfach wurde bereits einmal aufgeräumt (Spam/Werbung entfernt, Papierkorb geleert) — siehe Report für vollständige, nach Kontakt sortierte Übersicht aller verbliebenen Mails.
+- 🔴 Top-Priorität (03.08.2026 hochgestuft): dauerhafte Speicherlimit-Erhöhung (vermutlich Reseller-Modell, ~0,20 €/GB/Monat) — Artur will das Limit erhöhen lassen (Stand 19.07.2026). Braucht eine Aktion im lima-city-Kundenbereich (Tarif/Reseller-Einstellung), keine Website-Änderung — noch nicht umgesetzt.
+- 🔴 Top-Priorität (03.08.2026 neu): IONOS-Vertrag kündigen — Domain und E-Mail-Postfach sind bereits vollständig zu lima-city umgezogen (siehe Abschnitt 7), der alte IONOS-Vertrag läuft aber vermutlich noch unnötig weiter und verursacht Kosten. Braucht eine Aktion bei IONOS direkt (Kündigung im IONOS-Kundenkonto), keine Website-Änderung.
+- ✅ Postfach wurde bereits einmal aufgeräumt (Spam/Werbung entfernt, Papierkorb geleert) — siehe Report für vollständige, nach Kontakt sortierte Übersicht aller verbliebenen Mails.
 
 ## 7. Bereits erledigt (Referenz)
 
