@@ -1,5 +1,12 @@
 AddDefaultCharset UTF-8
 
+# www auf die kanonische Domain ohne www umleiten -- sonst behandelt Google
+# www.westerwald-pianoservice.de als eigenstaendige Duplikat-Seite statt als
+# Alias, weil beide Varianten identischen Inhalt mit Status 200 ausliefern.
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
 # HTML-Seiten nie lange cachen -- Updates sollen sofort bei jedem
 # Besucher ankommen, ohne dass jemand einen Hard-Refresh braucht.
 <FilesMatch "\.html$">
