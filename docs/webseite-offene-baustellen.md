@@ -22,6 +22,7 @@ Diese Datei wird nach jeder Entscheidung oder Code-Änderung am Projekt aktualis
 ## 0. Kurzübersicht — alle offenen Punkte
 
 - ✅ Widerrufsbelehrung geklärt und eingebaut, noindex kann entfernt werden — Details unter 1. Rechtliches
+- 🟡 Google-Indexierungsproblem (www-Duplicate-Content) behoben und deployt, wartet nur noch auf Googles erneutes Crawling — Details unter 3. SEO & Sichtbarkeit
 - 🔴 Top-Priorität: E-Mail-Speicherlimit dauerhaft erhöhen (Artur will das, noch nicht umgesetzt) — Details unter 6. E-Mail-Postfach
 - 🔴 Top-Priorität: IONOS-Vertrag kündigen (Domain + E-Mail sind schon zu lima-city umgezogen, IONOS läuft vermutlich unnötig weiter mit) — Details unter 6. E-Mail-Postfach
 - ⚪ Antwort der Handwerkskammer Koblenz zur Muster-AGB steht noch aus — Details unter 1. Rechtliches
@@ -46,6 +47,8 @@ Diese Datei wird nach jeder Entscheidung oder Code-Änderung am Projekt aktualis
 ## 3. SEO & Sichtbarkeit
 
 - ✅ <meta name="robots" content="noindex, nofollow"> war auf allen 4 Seiten aktiv, solange die Widerrufsbelehrung fehlte. Jetzt entfernt (19.07.2026), da die Widerrufsbelehrung geklärt ist (siehe Punkt 1) — Artur hatte dafür bereits grünes Licht gegeben, keine weitere Rückfrage nötig. Die Seite kann jetzt von Google gefunden werden.
+- ✅ Google Search Console eingerichtet (03.08.2026): Domain-Property verifiziert (DNS-TXT-Record), Sitemap eingereicht, Startseite zur Indexierung angemeldet.
+- 🟡 In Bearbeitung bei Google (08.08.2026): Google meldete per E-Mail Indexierungsprobleme. Ursache gefunden und behoben — `www.westerwald-pianoservice.de` lieferte denselben Inhalt eigenständig mit Status 200 aus, statt auf die Domain ohne www weiterzuleiten. Dadurch hatte Google zufällig die falsche (www-)Variante indexiert und die echte Domain als "Duplikat – vom Nutzer nicht als kanonisch festgelegt" eingestuft. Fix: `.htaccess` leitet www jetzt per 301 auf die kanonische Domain um, zusätzlich `<link rel="canonical">` auf allen 4 Seiten ergänzt, deployt (Git + FTP) und live verifiziert. In Search Console die Fehlerbehebung für das Duplikat-Problem gestartet und für Impressum/Datenschutz/AGB (bisher nur "gefunden, nicht gecrawlt") die Indexierung neu beantragt. Google braucht jetzt einige Tage zum erneuten Crawlen — kein weiterer Handlungsbedarf, nur abwarten und bei Gelegenheit den Status in Search Console gegenprüfen.
 
 ## 4. Sicherheit / Spam-Schutz
 
