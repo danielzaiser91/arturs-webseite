@@ -36,72 +36,17 @@ Entscheidung oder Code-Änderung** in diesem Repo diese Datei aktualisieren:
 - Bei größeren Audits (wie der Erstversion) ruhig auch den "Stand: DD.MM.YYYY"-Hinweis oben
   aktualisieren.
 
-Diese Datei wird 1:1 mit einem Google Doc gesynct und an Artur weitergegeben — sie muss also für
-sich verständlich und aktuell sein, nicht nur im Kontext des Chats.
-
-### Google-Doc-Sync — wie es funktioniert
-
-Google Doc: https://docs.google.com/document/d/1279KnXk6Lo_Cg64SrvxRv_ZHT8umytUOPUhtFdM6ikQ/edit
-mit drei Tabs: **"Offene Baustellen"** (Spiegel von `docs/webseite-offene-baustellen.md`),
-**"Übersicht Emails"** (Spiegel von `docs/email-uebersicht-fuer-artur.md`; hieß früher
-"Referenzen", von Daniel umbenannt) und **"Thielemann Vergleich und Analyse"** (Spiegel von
-`docs/vergleich-fuer-artur.md` — der laienverständlichen Fassung von
-`docs/vergleich-piano-thilemann.md`; Schreibweise "Thielemann" mit ie stammt vom User, beim
-Tab-Lookup exakt so verwenden).
-
-Es gab bis 19.07.2026 einen vierten Tab **"Fragen an Artur"** (Checkbox-Fragebogen für offene
-Entscheidungen, gebaut von `push_fragebogen.py`) — der ist entfernt. Grund: der angekreuzt/nicht-
-angekreuzt-Zustand der Checkbox-Pills ließ sich über die Docs API nicht auslesen (`paragraph.bullet`
-hat laut API-Schema nur `listId`/`nestingLevel`/`textStyle`, kein "checked"-Feld, und auch kein
-Strikethrough-Signal wie bei Googles nativer Checklist-Funktion) — Artur musste seine Antworten
-daher händisch beschreiben. Alle 10 Fragebogen-Fragen sind beantwortet und jetzt direkt als normale
-Bullet-Punkte (mit Dringlichkeits-Emoji) in die passenden Abschnitte von
-`webseite-offene-baustellen.md` integriert; `push_fragebogen.py` wurde gelöscht. Neue offene Fragen
-an Artur künftig direkt als Freitext-Bullet in der passenden Kategorie stellen, nicht mehr über ein
-separates Checkbox-Format — das ist zuverlässig auslesbar.
-
-Sync-Tools liegen in `.sync-tools/` (nicht im Git-Repo, siehe `.gitignore` — enthält u. a.
-`token.json` mit dem OAuth-Refresh-Token):
-
-- **`push_baustellen.py`** — schreibt `docs/webseite-offene-baustellen.md` in den Doc-Tab "Offene
-  Baustellen". **Nach jeder Aktualisierung der .md-Datei ausführen**, damit das Doc synchron
-  bleibt (`cd ".sync-tools" && python push_baustellen.py`). Enthält außerdem: farbige
-  Kategorie-Überschriften, klickbares Inhaltsverzeichnis, und die Keep-Together-Regel (siehe unten).
-- **`push_referenzen.py`** — schreibt `docs/email-uebersicht-fuer-artur.md` in den Tab
-  "Übersicht Emails" (Markdown-Tabellen werden dabei zu einzeiligen Bullet-Listen konvertiert, da
-  native Docs-Tabellen bei dieser Menge an Zeilen nicht praktikabel sind).
-- **`push_vergleich.py`** — schreibt `docs/vergleich-fuer-artur.md` (Laienfassung des
-  Thilemann-Vergleichs) in den Tab "Thielemann Vergleich und Analyse". Die technische Analyse
-  bleibt in `docs/vergleich-piano-thilemann.md`; bei inhaltlichen Änderungen beide Fassungen
-  pflegen und danach dieses Script ausführen.
-- **`check_and_pull.py`** — vergleicht `modifiedTime` des Docs mit dem letzten bekannten Stand in
-  `sync_state.json`. Falls jemand (Artur/Daniel) direkt im Doc editiert hat, zieht es den Inhalt
-  automatisch zurück in `docs/webseite-offene-baustellen.md`.
-- **Wichtig:** jedes `push_*.py`-Script ruft am Ende `record_own_push()` auf (aus
-  `gdocs_common.py`) — das aktualisiert `sync_state.json` mit dem neuen `modifiedTime`, damit der
-  *eigene* Push nicht fälschlich als "Artur hat editiert" erkannt und die lokale Datei mit einer
-  verlustbehafteten Rückkonvertierung überschrieben wird, falls `check_and_pull.py` danach läuft.
-  Bei neuen Push-Scripts diesen Aufruf nicht vergessen.
-- Der automatische Scheduled Task (`baustellen-doc-sync-check`) wurde von Daniel am 19.07.2026
-  deaktiviert und gelöscht (nicht mehr gebraucht). `check_and_pull.py` existiert weiterhin und kann
-  bei Bedarf **manuell** ausgeführt werden, um Doc-Änderungen von Artur/Daniel zurückzuziehen — es
-  läuft aber nicht mehr automatisch im Hintergrund.
-- Google Cloud Projekt "Baustellen-Sync", Credentials/Doc-ID in `my_secrets.md` unter "Google Cloud
-  Baustellen-Sync" dokumentiert.
-- Bekannte Einschränkung: Markdown ↔ Google Docs ist keine perfekte 1:1-Konvertierung (Tabellen,
-  verschachtelte Listen etc. können bei größeren Strukturänderungen Fidelity verlieren) — für die
-  aktuelle Struktur der Dateien (Überschriften, Bullet-Listen, Absätze) funktioniert es sauber.
-
-### Regel: Abschnitte dürfen nicht über einen Seitenumbruch auseinanderreißen
-
-Im "Offene Baustellen"-Tab gilt: eine logische Einheit (eine H2-Sektion inkl. all ihrer Bullets)
-bekommt `keepLinesTogether` auf jedem Absatz und `keepWithNext` auf allen Absätzen außer dem
-letzten im Block — verhindert, dass Google Docs die Einheit mittendrin über eine Seite verteilt.
-Bei künftigen Erweiterungen von `push_baustellen.py` (neue Abschnitte) dieses Muster beibehalten,
-siehe `block_ranges`-Logik dort. Falls ein expliziter Seitenumbruch nötig ist (`insertPageBreak`),
-diesen immer als **eigenen, abgeschlossenen Absatz** einfügen (Page-Break-Request + eigenes `\n`)
-— landet er im selben Absatz wie nachfolgender Text, rendert der leere Rest des Absatzes noch auf
-der vorherigen Seite.
+**Google-Doc-Sync deaktiviert (08.08.2026):** Diese Datei (und `email-uebersicht-fuer-artur.md`,
+`vergleich-fuer-artur.md`) wurde früher 1:1 mit einem Google Doc gesynct und in dieser Form an
+Artur weitergegeben. Daniel hat das Doc inklusive aller Tabs ("Offene Baustellen", "Übersicht
+Emails", "Thielemann Vergleich und Analyse") gelöscht — der Sync-Mechanismus ist damit ohne Ziel
+und inaktiv. Die Sync-Scripts (`push_baustellen.py`, `push_referenzen.py`, `push_vergleich.py`,
+`check_and_pull.py`) liegen weiterhin lokal in `.sync-tools/` (nicht im Git-Repo), sind aber gegen
+die alte, jetzt gelöschte Doc-ID verdrahtet und daher **nicht ausführbar**, ohne sie zuerst auf ein
+neues Doc umzubiegen. Referenzen auf die alte Doc-URL/-ID wurden aus `my_secrets.md` entfernt; das
+Google-Cloud-OAuth-Setup ("Baustellen-Sync") bleibt dort dokumentiert, falls ein neues Doc
+angelegt werden soll. Diese Datei bleibt bis auf Weiteres die alleinige Quelle — für sich
+verständlich und aktuell halten reicht, kein Weitergabe-Format über den Chat-Kontext hinaus nötig.
 
 ## Deploy-Regel
 
