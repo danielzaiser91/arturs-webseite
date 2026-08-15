@@ -1,8 +1,7 @@
-# Die eigentliche "nicht indexieren"-Sperre sitzt als <meta name="robots"
-# content="noindex, nofollow"> auf jeder Seite -- das reicht aus, um
-# Google & Co. von der Indexierung abzuhalten, ohne den Zugriff für
-# andere Bots (z. B. Link-Vorschau-Crawler von WhatsApp/Telegram) zu
-# blockieren, wie es ein pauschales "Disallow: /" hier tun würde.
+# Indexierung ist ausdrücklich erwünscht: der frühere <meta name="robots"
+# content="noindex, nofollow"> wurde am 19.07.2026 von allen Seiten entfernt,
+# nachdem die Widerrufsbelehrung geklärt war. Bewusst kein "Disallow: /" hier,
+# das würde auch Link-Vorschau-Crawler (WhatsApp/Telegram) aussperren.
 User-agent: *
 Allow: /
 
