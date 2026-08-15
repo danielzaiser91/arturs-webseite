@@ -58,6 +58,14 @@ verständlich und aktuell halten reicht, kein Weitergabe-Format über den Chat-K
    `https://westerwald-pianoservice.de`. Zugangsdaten: `C:\code\ai\ai helper files\my_secrets.md`,
    Abschnitt "Arturs Website (Westerwald-Pianoservice) — FTP Filehost lima-city.de".
 
+**Das Document-Root ist `/html/`, nicht die FTP-Wurzel.** Der FTP-Account landet eine Ebene darüber,
+neben `logs/`, `.opcache/` und `.spamassassin/`. Ein Upload nach `ftp://…/robots.txt` meldet
+fröhlich `226 Transfer complete` und ist trotzdem unsichtbar — die Datei liegt dann außerhalb der
+Website. Ziel ist immer `ftp://ace2001.lima-ftp.de/html/<datei>`. Deshalb gilt: **nach jedem
+FTP-Upload die Datei über HTTPS zurücklesen**, nicht dem FTP-Statuscode glauben (real passiert
+15.08.2026 mit `robots.txt` und `sitemap.xml`; die beiden Fehlkopien im Webspace-Root wurden per
+`DELE` wieder entfernt).
+
 **Standardfall:** Nach jeder fertigen, funktionierenden Änderung an client-facing Dateien →
 `git push` **und** FTP-Upload (nur der client-facing Dateien, siehe "Regel: nur client-facing
 Dateien auf FTP" oben). Beide Systeme sollen denselben Code-Stand zeigen — nicht auseinanderdriften
