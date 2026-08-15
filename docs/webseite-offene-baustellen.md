@@ -75,7 +75,7 @@ Diese Datei wird nach jeder Entscheidung oder Code-Änderung am Projekt aktualis
 - Kontaktformular läuft über einen eigenen PHP-Mailer (kein Drittanbieter), live getestet.
 - PHP-Version von 5.6 (EOL) auf 8.3 angehoben.
 - Open-Graph-/Twitter-Card-Tags samt eigenem Vorschaubild ergänzt.
-- robots.txt von pauschalem Disallow: / auf Allow: / umgestellt (die eigentliche Indexierungs-Sperre sitzt bewusst nur im <meta robots>-Tag, siehe Punkt 3) + Sitemap-Verweis ergänzt.
+- robots.txt von pauschalem Disallow: / auf Allow: / umgestellt (die Indexierungs-Sperre saß damals bewusst nur im <meta robots>-Tag, siehe Punkt 3; dieser Tag ist seit 19.07.2026 entfernt, der Kommentar in der robots.txt wurde am 15.08.2026 entsprechend nachgezogen) + Sitemap-Verweis ergänzt.
 - Domain-Umzug IONOS → lima-city abgeschlossen, DNS läuft über lima-city.
 - E-Mail-Postfach bei lima-city eingerichtet, alle Backup-Mails migriert, Test-Mail über das Kontaktformular end-to-end verifiziert.
 - Mailto-Links per JS obfuskiert (main.js + data-mail-user/data-mail-domain).
