@@ -2,6 +2,36 @@
 
 Gilt für jeden Agent, der in diesem Repo arbeitet.
 
+## Ziel des Projekts
+
+Die Website soll **Artur Zaiser Aufträge bringen** — Klavierstimmung, Reparatur, Restaurierung,
+Ankauf, im Westerwald und der Umgebung von Raubach. Alles andere ist Mittel zum Zweck. Der
+Erfolgsmaßstab ist deshalb nicht Gestaltung und nicht Technik, sondern die Frage: **Ruft ein
+Interessent an oder schreibt er?** Der erste belegte Fall war der 16.08.2026, eine Preisanfrage über
+den WhatsApp-Kontaktweg.
+
+Daraus folgt für Entscheidungen im Zweifel:
+
+- **Lokal vor allgemein.** Die Suchanfragen, die tatsächlich Besucher bringen, sind Ortssuchen
+  („klavierstimmer in der nähe"), keine Fachbegriffe. Für generische Begriffe wie „klavier" oder
+  „epiano" gegen Händler und Hersteller anzutreten, ist verlorene Mühe.
+- **Ein Weg zur Kontaktaufnahme, überall erreichbar.** Telefon und WhatsApp sind der Hauptkanal,
+  nicht das Formular — Arturs Kundschaft ruft an.
+- **Nichts erfinden, was Artur nicht bestätigt hat.** Keine Preise, keine Jahreszahlen, keine
+  Kundenstimmen, keine Leistungen ohne seine Bestätigung. Ein erfundenes Detail auf einer
+  Handwerkerseite ist ein Schaden, kein Platzhalter. Was fehlt, bleibt weg.
+- **Artur hat kaum Kapazität und bittet ausdrücklich um eigene Entscheidungen** („mach, wie du
+  denkst am besten, ich vertraue dir da voll", 17.08.2026). Rückfragen an ihn kosten Wochen und
+  bleiben oft unbeantwortet. Also entscheiden und mitteilen, statt vorlegen — und was wirklich nur
+  er kann (Verträge, Konten, Preise, sein Gewerbe), so weit vorbereiten, dass ein Handgriff bleibt.
+- **Der stärkste Hebel liegt derzeit nicht in diesem Repo,** sondern im nicht beanspruchten
+  Google-Unternehmensprofil „Piano Zaiser". Für lokale Handwerkersuchen zählt es mehr als jede
+  Unterseite. Das ist bei der Priorisierung ehrlich mitzudenken, statt Arbeit an der Website als
+  Ersatz dafür zu verkaufen.
+
+Der ursprüngliche Entwurf mit Positionierung, Sitemap und Gestaltungsrichtung steht in
+`docs/WEBSITE_PLAN.md`; der aktuelle Stand aller Punkte in `docs/webseite-offene-baustellen.md`.
+
 ## Ordnerstruktur
 
 - **Root** (`index.html`, `impressum.html`, `datenschutz.html`, `agb.html`, `robots.txt`,
