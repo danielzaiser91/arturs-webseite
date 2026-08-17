@@ -627,3 +627,57 @@ footer {
   height: 16px;
   flex-shrink: 0;
 }
+
+/* ---------- Haeufige Fragen: native <details>, kein JS ---------- */
+/* Bewusst mit <details>/<summary> statt eines eigenen Akkordeons: Aufklappen,
+   Tastaturbedienung und Vorlesbarkeit bringt der Browser mit, und Google liest
+   den eingeklappten Text trotzdem. Kein Skript, das kaputtgehen kann. */
+.faq-list {
+  display: grid;
+  gap: 0.7rem;
+  max-width: 46em;
+}
+.faq-item {
+  background: var(--bg-panel-2);
+  border: 1px solid var(--card-border);
+  border-radius: 4px;
+}
+.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding: 1.05rem 1.4rem;
+  cursor: pointer;
+  font-family: 'Work Sans Z', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.4;
+  /* Standard-Dreieck abschalten, wir zeichnen selbst */
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { color: var(--accent-bright); }
+/* Chevron aus zwei Rahmenkanten -- unabhaengig von Schriftart und Emoji-Set */
+.faq-item summary::after {
+  content: "";
+  flex: none;
+  width: 0.46rem;
+  height: 0.46rem;
+  margin-right: 0.15rem;
+  border-right: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+.faq-item[open] summary::after { transform: rotate(-135deg); }
+.faq-item[open] summary { color: var(--accent-bright); }
+.faq-answer {
+  margin: 0;
+  padding: 0 1.4rem 1.25rem;
+  color: var(--fg-dim);
+  max-width: 44em;
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-item summary::after { transition: none; }
+}
