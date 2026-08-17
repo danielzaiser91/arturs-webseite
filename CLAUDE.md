@@ -28,8 +28,15 @@ Upload-Set sind — nicht versehentlich den ganzen Ordner synchronisieren.
 ## Offene-Baustellen-Datei immer aktuell halten
 
 `docs/webseite-offene-baustellen.md` ist die zentrale, kategorisierte Übersicht über alle offenen
-Punkte im Projekt (Rechtliches, Content, SEO, Sicherheit, Deployment-Status, E-Mail). **Nach jeder
-Entscheidung oder Code-Änderung** in diesem Repo diese Datei aktualisieren:
+Punkte im Projekt (Rechtliches, Content, SEO, Sicherheit, Deployment-Status, E-Mail).
+
+**Diese Datei erfüllt hier die Rolle der `status.md` aus den globalen Regeln — es wird bewusst
+keine zweite Statusdatei angelegt.** Abschnitt 0 („Kurzübersicht") ist die Warteschlange, Abschnitt
+7 („Bereits erledigt") das Archiv. Zwei Listen mit denselben Punkten laufen garantiert auseinander;
+wer die Struktur der globalen Regel braucht, ordnet sie hier ein, statt ein `status.md` daneben zu
+stellen.
+
+**Nach jeder Entscheidung oder Code-Änderung** in diesem Repo diese Datei aktualisieren:
 
 - Erledigte Punkte in den "Bereits erledigt"-Abschnitt verschieben (nicht einfach löschen).
 - Neu gefundene Probleme/offene Fragen in die passende Kategorie einsortieren.
@@ -47,6 +54,24 @@ neues Doc umzubiegen. Referenzen auf die alte Doc-URL/-ID wurden aus `my_secrets
 Google-Cloud-OAuth-Setup ("Baustellen-Sync") bleibt dort dokumentiert, falls ein neues Doc
 angelegt werden soll. Diese Datei bleibt bis auf Weiteres die alleinige Quelle — für sich
 verständlich und aktuell halten reicht, kein Weitergabe-Format über den Chat-Kontext hinaus nötig.
+
+## Google-Indexierung: erst URL-Prüfung, dann Bericht
+
+Diese Website hing zweimal an einem Indexierungsproblem, das bei der Diagnose fast falsch gelesen
+wurde. Wer hier an SEO oder Indexierung arbeitet, liest vorher **Kategorie 28** in
+`C:\code\ai\ai helper files\ai_agent_learnings.md`. Die zwei Kernpunkte:
+
+- Der Search-Console-Bericht „Seitenindexierung" ist mehrere Tage alt (Datum steht oben rechts), die
+  **URL-Prüfung ist live**. Bei Widerspruch gewinnt die URL-Prüfung — sonst repariert man ein längst
+  behobenes Problem.
+- Entscheidend ist dort die Zeile **„Von Google ausgewählte kanonische URL"**. Steht „Geprüfte URL",
+  ist die Sache in Ordnung, unabhängig davon, was die Kategorien im Bericht noch anzeigen.
+
+Kanonische Adresse ist ausnahmslos `https://westerwald-pianoservice.de` **ohne www**. Alle vier
+Host-Varianten (http/https × mit/ohne www) leiten per 301 dorthin. Im ausgelieferten Code darf
+**kein** `www.`-Vorkommen stehen — ein interner Link, `og:url` oder Schema.org-`url` auf die
+www-Variante hebt das `canonical` wieder auf. Prüfgriff vor jeder Behauptung, es sei alles korrekt:
+`grep -rn "www\.westerwald" *.html assets/`.
 
 ## Deploy-Regel
 
