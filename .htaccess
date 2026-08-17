@@ -7,6 +7,17 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
+# Die Hosting-Subdomain ace2001.lima-city.de lieferte die komplette Website
+# eigenstaendig mit Status 200 aus -- derselbe Duplikat-Fall wie www oben, nur
+# ueber die Adresse des Webspace-Pakets. Gefunden am 17.08.2026 in Googles
+# Suchergebnissen: die Subdomain stand dort als eigener Treffer neben der
+# richtigen Domain (mit einer Unterseite /kontakt, die es seit dem Umbau nicht
+# mehr gibt und die 404 lieferte). Das canonical-Tag zeigte zwar korrekt auf die
+# Hauptdomain, aber genau so hatte auch der www-Fall angefangen, und dort hat
+# Google trotzdem die falsche Variante indexiert.
+RewriteCond %{HTTP_HOST} ^ace2001\.lima-city\.de$ [NC]
+RewriteRule ^(.*)$ https://westerwald-pianoservice.de/$1 [R=301,L]
+
 # HTML-Seiten nie lange cachen -- Updates sollen sofort bei jedem
 # Besucher ankommen, ohne dass jemand einen Hard-Refresh braucht.
 <FilesMatch "\.html$">
