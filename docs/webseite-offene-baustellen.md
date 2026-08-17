@@ -71,7 +71,7 @@ Diese Datei wird nach jeder Entscheidung oder Code-Änderung am Projekt aktualis
 
 ## 5. Deployment-Status (aktueller Sync-Zustand zwischen GitHub und lima-city-FTP)
 
-✅ GitHub und lima-city-FTP sind synchron — letzter Stand auf beiden: Text-Überhaul (Branch text-ueberarbeitung, gemergt) + Timing-Check-Fix.
+✅ GitHub und lima-city-FTP sind synchron — letzter Stand auf beiden (17.08.2026): echte Favicon-Dateien statt `data:`-URI (`favicon.ico`, `favicon.svg`, `assets/img/favicon-192.png`, `apple-touch-icon.png`, plus die 4 HTML-Seiten) und die erweiterte `.htaccess` mit der 301 für die Hosting-Subdomain. Auf beiden Hosts live gegengeprüft: alle Icon-Dateien liefern 200, auch unter dem GitHub-Pages-Unterpfad `/arturs-webseite/` — dort belegt eine Gegenprobe, dass ein absoluter Pfad `/favicon.ico` 404 gäbe, die relativen Pfade also nötig sind.
 
 ## 6. E-Mail-Postfach (Details siehe email-uebersicht-fuer-artur.md)
 
